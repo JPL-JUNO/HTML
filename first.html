@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="为搜索引擎定义关键词">
+    <meta name="description" content="为网页定义描述内容">
+    <meta name="author" content="定义网页作者">
+    <meta http-equiv="refresh" content="30">
+    <title>HTML学习实例</title>
+    <!-- <base href="https://www.apple.com.cn" target="_blank"> -->
+    <!使用外部格式来格式化文本>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <!在标签栏显示logo>
+    <link rel="shortcut icon" href="img/apple.png">
+    <!-- 当单个文件需要特别样式时，就可以使用内部样式表。你可以在<head> 部分通过 <style>标签定义内部样式表: -->
+    <style type="text/css">
+        body {background-color: yellow;}
+        p {color: red;}
+    </style>
+</head>
+<body style="background-color: yellow;">
+    <p><b>注意:</b>在HTML 4中 align 属性已废弃，HTML5 已不支持该属性，可以使用 CSS 代替。</p>
+    <h4>默认对齐的图像（align=‘top’）</h4>
+    <p>这是一些文本<img src="img/apple.png" width="27" height="30" alt="apple logo" align="top"></p>
+    <h4>默认对齐的图像（align=‘middle’）</h4>
+    <p>这是一些文本<img src="img/apple.png" width="27" height="30" alt="apple logo" align="middle"></p>
+    <h4>默认对齐的图像（align=‘bottom’）</h4>
+    <p>这是一些文本<img src="img/apple.png" width="27" height="30" alt="apple logo"></p>
+    <img src="img/apple.png" alt="apple logo" width="270" height="300">
+    <h1 style="text-align: center;">居中对齐示意</h1>
+    <p>这是一个段落</p>
+    <h1 style="font-family: Times New Roman;">这个一个字体的示意</h1>
+    <p style="font-family: arial;color:red;font-size:20px;">字体、字体颜色、字体大小的示意</p>
+    <h2 style="background-color: red;">这是一个红色背景的二级标题</h2>
+    <p style="background-color: green;">这是一个绿色背景的段落</p>
+    <p style="color:rgb(201, 17, 158);margin-left:20px">这是一个段落</p>
+    <h1>我使用了外部格式文件来格式化文本</h1>
+    <p>我也是！</p>
+    <h1>我的第一个标题</h1>
+    <a id="tips">链接的目标id</a>
+    <p>我的第一个段落</p>
+    <h2>这是一个二级标题</h2>
+    <h3>这是一个三级标题</h3>
+    <hr>
+    <h6>这是一个六级标题（最低等级标题）</h6>
+    <p>这是另外一个自然段</p>
+    <hr>
+    <! comment annotation>
+    <a href="https://www.apple.com.cn">这是一个链接（Apple）</a>
+    <br/>
+    <img src="img/html.png" width="258" height="258" /> 
+    <p>this is a paragraph <br/>that has a break rule instead with a new paragraph</p>
+
+    <b>this text id blod</b>
+    <br>
+    <i>this text is italic</i>
+    <br>
+    <strong>this text is strong similar with bold</strong>
+    <br>
+    <em>this text is emphasize similar with italic</em>
+    <br>
+    <big>this text is big</big>
+    <br>
+    <small>
+        this text is small
+    </small>
+    <br>
+    <p>this paragraph contains sup<sup>sup</sup></p>
+    this text contains emphasized sub<sub><em>sub</em></sub>
+    <p>
+        <pre>
+            此例演示如何使用pre标签对空格和空行进行控制
+            对空行  空格  
+    
+            哈哈
+        </pre>
+    </p>
+    <pre>
+        此例演示如何使用pre标签对空格和空行进行控制
+        对空行  空格  
+
+        哈哈
+    </pre>
+    <br>
+    <code>
+        计算机输出
+    </code>
+    <br>
+    <kbd>
+        keyboard input
+    </kbd>
+    <br>
+    <tt>
+        type text打字机文本
+    </tt>
+    <br>
+    <samp>sample计算机代码样本</samp>
+    <br>
+    <var>计算机变量variable</var>
+
+    <p>
+        <b>注释：</b>这些标签常用于显示计算机/编程代码
+    </p>
+
+    <address>
+        written by <a href='cuixuanStephen@gmail.com'> Stephen CUI</a>.<br/>
+        Example:<br>
+        Box 567, Di<br>
+        Hangzhou, Zhengjiang
+    </address>
+
+    <abbr title="etcetera">etc.</abbr>
+    <br>
+    <abbr title="Thanks">thx</abbr>
+    <br>
+    <acronym title="Wordl Wide Web">WWW</acronym>
+    <p>
+        在某些浏览器中，当你的鼠标移至缩略词语上时，title的值可用于完整的展示
+        <br>
+        仅针对于IE5中的acronym元素有效
+        <br>
+        对于Netscape6.2中的abbr和acronym元素都有效
+    </p>
+    <h3>文字方向</h3>
+    <p>
+        该段落文字从左到右显示
+    </p>
+
+    <p>
+        <bdo dir="rtl">
+            该段落文字从右向左显示right to left
+        </bdo>     
+    </p>
+    <h3>块引用</h3>
+    <p>
+        WWF's goal is to:
+        <q>
+            Build a future where people live in harmony with nature.
+        </q>
+        We hope they succeed.
+    </p>
+    <h3>删除字效果和插入自效果</h3>
+    <p>
+        My favorite color is <del>blue</del> <ins>red</ins>!
+    </p>
+
+    <p>
+        <a href="https://www.apple.com.cn" <cite>The Scream</cite></a> by  Edward Munch. Painted in 1893
+    </p>
+
+    <h3>引用长的引语</h3>
+    <blockquote cite="http://www.worldwildlife.org/who/index.html">
+        For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+    </blockquote>
+    <h2>链接</h2>
+    <p>
+        <a href="index.html">本文本</a>是指向本网站中的一个页面的链接
+    </p>
+    <p>
+        <a href="https://www.apple.com.cn/">本文本</a>是指向万维网上的页面的链接
+    </p>
+    <a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer">访问菜鸟教程!</a>
+
+    
+    <a href="#tips">访问链接id</a>
+
+    <a href="https://www.runoob.com/html/html-links.html#tips">有用的提示部分</a>
+    <h3>图片添加链接</h3>
+    <p>
+        创建有边框有链接的图片：
+        <a href="https://www.apple.com.cn"><img border="10" src="img/apple.png" alt="HTML 教程" width="33", height="33"></a>
+    </p>
+
+    <p>
+        创建无边框的有链接的图片：
+        <a href="https://www.apple.com.cn"><img src="img/apple.png" alt="HTML 教程" width="33", height="33"></a>
+    </p>
+    <h3>在当前页面链接到指定位置</h3>
+    <p>
+        <a href="#C4">查看章节 4</a>
+        </p>
+        
+        <h2>章节 1</h2>
+        <p>这边显示该章节的内容……</p>
+        
+        <h2>章节 2</h2>
+        <p>这边显示该章节的内容……</p>
+        
+        <h2>章节 3</h2>
+        <p>这边显示该章节的内容……</p>
+        
+        <h2><a id="C4">章节 4</a></h2>
+        <p>这边显示该章节的内容……</p>
+
+        <h2>跳出框架?</h2>
+        <p>
+            跳出框架?<a href="https://www.apple.com.cn" target="_top">点击这里！</a>
+        </p>
+
+        <h2>联系我</h2>
+        <a href="mailto:junocuixuan@163.com?Subject=Hello%20again" target="_top">发送邮件</a>
+        <p>
+            <b>注意：</b>单词之间空格使用%20代替，以确保浏览器可以正常显示文本
+        </p>
+    
+        <a href="mailto:someone@example.com?cc=someoneesle@example.com&bcc=andsomeoneelse@example.com&subject=Summer%20party&body=You%20are%20invited%20to" target="_top">负责邮件发送</a>
+        <p>
+            <b>注意：</b>这里的邮件包含收件人、抄送（cc）、密抄（bcc），主题（subject）以及内容（body）
+        </p>
+    <div style="opacity:.5;position:absolute;left:50px;width:300px;height: 150px;background-color: #40B3DF;"></div>
+    <div style="font-family: Times New Roman;padding: 20px; border-radius: 10px;border:10px solid #EE872A;">
+    <div style="opacity: .3;position:absolute;left:120px;width: 100px;height: 200px;background-color: #8AC007;"></div>
+    <h3>Look! Style and Color</h3>
+    <div style="letter-spacing: 12px;">Manipulate Text</div>
+    <div style="color:#40B3DF">Colors
+        <span style="background-color: #B4009E;color:#ffffff">Boxes</span>
+    </div>
+    <div style="color:#000000;">and more...</div>
+    </div>
+    <a href="" style="text-decoration: none;">没有下划线的访问链接</a>
+</body>
+</html>
