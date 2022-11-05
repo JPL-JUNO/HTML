@@ -19,15 +19,85 @@
         p {color: red;}
     </style> -->
 </head>
-<body style="background-color: yellow;">
+<body >
+    <h4>一列：</h4>
+    <table border="1">
+        <tr>
+            <td>100</td>
+        </tr>
+    </table>
+    <h4>多列：</h4>
+    <table border="1">
+        <tr>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+        </tr>
+    </table>
+    <h4>多行多列：</h4>
+    <table border="1">
+        <tr>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>500</td>
+            <td>600</td>
+        </tr>
+    </table>
+    <h4>没有边框border</h4>
+    <table>
+        <tr>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>500</td>
+            <td>600</td>
+        </tr>
+    </table>
+    <h4>本例显示如何创建带有可供点击区域的图像地图。其中的每个区域都是一个超级链接。</h4>
+        <img src="img/apple.png" width="330" height="330" alt="apple" usemap="#applemap">
+        <map name="applemap">
+            <!-- 似乎是x轴从上至下，y轴从左至右 -->
+            <area shape="rect" coords="0, 0, 82, 150" alt="ipad" href="ipad.png">
+            <area shape="circle" coords="150, 150, 30" alt="iphone" href="iphone.png">
+            <area shape="circle" coords="300, 300, 30" alt="Mac" href="mac.png">
+        </map> 
+    <h4>创建带有链接的图片</h4>
+    <p>
+        创建带有链接的图片：
+        <a href="https://www.apple.com.cn" >
+            <img border="10" src="img/apple.png" alt="带有链接的图片" width="33" height="33" align="middle">
+        </a>
+    </p>
+    <p>
+        创建带有链接的图片：
+        <a href="https://www.apple.com.cn" >
+            <img border="0" src="img/apple.png" alt="带有链接的图片" width="33" height="33" align="middle">
+        </a>
+    </p>
+    <p>
+        <b>注意：</b>在这里我们使用了CSS float属性，在HTML4中float属性已废弃，HTML也支持该属性，可以使用CSS替代
+    </p>
+    <p>
+        <img src="img/apple.png" alt="float left" style="float: left" width="32" height="32">一个带有图片的段落，图片浮动在这个文本的左边
+    </p>
+    <p>
+        <img src="img/apple.png" alt="float left" style="float: right" width="32" height="32">一个带有图片的段落，图片浮动在这个文本的右边
+    </p>
     <p><b>注意:</b>在HTML 4中 align 属性已废弃，HTML5 已不支持该属性，可以使用 CSS 代替。</p>
     <h4>默认对齐的图像（align=‘top’）</h4>
-    <p>这是一些文本<img src="img/apple.png" width="27" height="30" alt="apple logo" align="top"></p>
+    <p>这是一些文本<img src="img/apple.png" width="30" height="30" alt="apple logo" align="top"></p>
     <h4>默认对齐的图像（align=‘middle’）</h4>
-    <p>这是一些文本<img src="img/apple.png" width="27" height="30" alt="apple logo" align="middle"></p>
+    <p>这是一些文本<img src="img/apple.png" width="30" height="30" alt="apple logo" align="middle"></p>
     <h4>默认对齐的图像（align=‘bottom’）</h4>
     <p>这是一些文本<img src="img/apple.png" width="27" height="30" alt="apple logo"></p>
-    <img src="img/apple.png" alt="apple logo" width="270" height="300">
+    <img src="img/apple.png" alt="apple logo" width="300" height="300">
     <h1 style="text-align: center;">居中对齐示意</h1>
     <p>这是一个段落</p>
     <h1 style="font-family: Times New Roman;">这个一个字体的示意</h1>
@@ -49,7 +119,7 @@
     <! comment annotation>
     <a href="https://www.apple.com.cn">这是一个链接（Apple）</a>
     <br/>
-    <img src="img/html.png" width="258" height="258" /> 
+    <img src="img/html.png" width="300" height="300" /> 
     <p>this is a paragraph <br/>that has a break rule instead with a new paragraph</p>
 
     <b>this text id blod</b>
