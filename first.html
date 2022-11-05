@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="为搜索引擎定义关键词">
     <meta name="description" content="为网页定义描述内容">
     <meta name="author" content="定义网页作者">
-    <meta http-equiv="refresh" content="30">
+    <!-- <meta http-equiv="refresh" content="30"> -->
     <title>HTML学习实例</title>
     <!-- <base href="https://www.apple.com.cn" target="_blank"> -->
     <!使用外部格式来格式化文本>
@@ -15,11 +17,445 @@
     <link rel="shortcut icon" href="img/apple.png">
     <!-- 当单个文件需要特别样式时，就可以使用内部样式表。你可以在<head> 部分通过 <style>标签定义内部样式表: -->
     <!-- <style type="text/css">
-        body {background-color: yellow;}
-        p {color: red;}
+        body {background-color: rgb(103, 207, 117);}
+        p {color: rgb(0, 0, 0);}
     </style> -->
 </head>
 <body >
+    <hr>
+    <h2>HTML 统一资源定位器(Uniform Resource Locators)</h2>
+    <hr>
+    <h2>字符字体</h2>
+    &#60;, a&nbsp;, a&#768;, a&#769; a&#770;. a&#771;, O&#768;, O&#769;, O&#770;, O&#771;<br>
+    &#160;, &#60;, &#62;, &#38;, &#34;, &#39;, &#162;, &#163;, &#165;, &#8364;, &#167;, &#169;, &#174;, &#8482;, &#215;, &#247;<br>
+    &nbsp;, &lt;, &gt;, &amp;, &quot;, &apos;, &cent;, &pound;, &yen;, &euro;, &sect;, &copy;, &reg;, &trade;, &times;, &divide;
+    <hr>
+    <h2>脚本</h2>
+    <script>
+        document.write('Hello World');
+    </script>
+    <hr>
+    <script>
+        document.write('Hello World');
+    </script>
+    <noscript>
+        抱歉，你的浏览器不支持JavaS！
+    </noscript>
+    <p>JavaScript能够直接写入HTML输出流中</p>
+    <script>
+        document.write("<h1>这是一个一级标题</h1>")
+        document.write('<p>这是一个段落</p>')
+    </script>
+    <p>
+        你只能在HTML输出流中使用<strong>document.write</strong>。如果你在文档已加载后使用它（比如在函数中），会覆盖整个文档。
+    </p>
+    <h4>使用JS事件响应</h4>
+    <p id="demo">JS可以出发事件，就像按钮点击</p>
+    <script>
+        function myfunction1()
+        {
+            document.getElementById('demo').innerHTML='Hello JavaScript';
+        }
+    </script>
+    <button type="button" onclick="myfunction1()">点我</button>
+
+    <h4>使用JS处理HTML样式</h4>
+    <p id="demo1">
+        JS能改变HTML元素的样式
+    </p>
+    <script>
+        function myfunction(){
+            x=document.getElementById('demo1')
+            x.style.color="#FF0000";
+        }
+    </script>
+    <button type="button" onclick="myfunction()">点击这里</button>
+    <hr>
+    <h2>框架</h2>
+    <iframe loading="lazy" src="https://www.runoob.com" width="200" height="200"></iframe>
+    <br>
+    <iframe src="https://www.runoob.com" frameborder="0"></iframe>
+    <br>
+    <iframe src="https://www.runoob.com" name="iframe_a"></iframe>
+    <p><a href="https://www.runoob.com" target="iframe_a" rel="noopener">apple.com</a></p>
+    <h4>从表单发送电子邮件</h4>
+    
+    <form action="mailto: junocuixuan@163.com" method="post" enctype="text/plain">
+        Name:<br>
+        <input type="text" name="name" value="your name"><br>
+        E-mail:<br>
+        <input type="text" name="mail" value="your emial"><br>
+        comment:<br>
+        <input type="text" name="comment" value="your comment" size="50"><br>
+    </br>
+    <input type="submit" value="发送">
+    <input type="reset" value="重置">
+    </form>
+    <h4>带有输入框和确认按钮的表单</h4>
+    <form action="demo-form.php" method="post">
+        First name: <input type="text" name="firstname" value="mickey"><br>
+        last name: <input type="text" name="lastname" value="Mouse"><br>
+        <input type="submit" value="提交">
+    </form>
+    <p>点解提交按钮，表单数据将被发送到服务器上</p>
+    <h4>带有边框的表单</h4>
+    <form action="">
+        <!-- 定义一组相关的表单元素，并使用外框包围起来 -->
+        <fieldset>
+            <legend>Personal Information:</legend>
+            Name: <input type="text" size="30"><br>
+            E-mail: <input type="text" size="30"><br>
+            Date of birth: <input type="text" size="10"><br>
+        </fieldset>
+    </form>
+    <h2>表单</h2>
+    <form action="">
+        first name: <input type="text" name="firstname"><br>
+        last name: <input type="text" name="lastname">
+    </form>
+    <form action="">
+        Username: <input type="text" name="username"><br>
+        <!-- password的话会编程小黑点，隐私问题 -->
+        Password: <input type="password" name="username"><br>
+    </form>
+    <h3>单选框radio</h3>
+    <form action="">
+        <input type="radio" name="sex" value="male">男<br>
+        <input type="radio" name="sex" value="female">女<br>
+    </form>
+    <h3>复选框checkbox</h3>
+    <form action="">
+        <input type="checkbox" name="vechine" value="Bike">自行车<br>
+        <input type="checkbox" name="vechine" value="Car">小汽车<br>
+    </form>
+    <h3>提交submit</h3>
+    <form action="html_form_action.php" method="get">
+        Username: <input type="text" name="username">
+        <input type="submit" value="submit">
+    </form>
+    <form>
+        <label>name:
+            <input name="submitted-name" autocomplete="name">
+        </label>
+        <button>Save</button>
+    </form>
+    <form method="post">
+        <label>name:
+            <input name="submitted-name" autocomplete="name">
+        </label>
+        <button>Save</button>
+    </form>
+    <form method="post">
+        <fieldset>
+            <legend>Title</legend>
+            <label><input type="radio" name="radio">Select me</label>
+        </fieldset>
+    </form>
+    <form action="">
+        <select name="cars">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+    </form>
+    <h4>带有预选值的下拉</h4>
+    <form action="">
+        <select name="cars">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C" selected>C</option>
+            <option value="D">D</option>
+        </select>
+    </form>
+    <textarea rows="10" cols="30">
+        这是一个文本框，你可以填写信息
+    </textarea>
+
+    <form action="">
+        <a href="https://www.apple.com.cn"><input type="button" value="Hello HTML"></a>
+    </form>
+    <h2>布局</h2> 
+    <h3>base on div</h3>
+    <div id="container" style="width:500px">
+        <div id="header" style="background-color: #FFA500;">
+            <h1 style="margin-bottom: 0;">Title of web</h1>
+        </div> 
+        <div id="menu" style="background-color: #FFD700;height: 200px;width: 100px;float:left">
+        <b>菜单</b><br>
+        HTML<br>
+        css<br>
+        JavaSc<br>
+        </div>
+        <div id="content" style="background-color: #EEEEEE;height: 200px;width: 400px;float: left;">
+        这里可以填写内容
+        </div>
+        <div id="footer" style="background-color: #FFA500;clear:both;text-align: center;">
+            copyright@Stephen CUI<br>
+            from 2022-11-05 to now
+        </div>
+    </div>
+    <h3>base on table</h3>
+    <table width="500" border="0">
+        <tr>
+            <td colspan="2" style="background-color: #FFA500;">
+                <h1>Title of web</h1>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color: #FFD700;width: 100px;">
+                <b>菜单</b><br>
+                HTML<br>
+                css<br>
+                JavaSc<br>
+            </td>
+            <td style="background-color: #EEEEEE;height: 200px;width:400px">
+                内容在这里
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color: #FFA500;text-align:center">
+                copyright@Stephen CUI<br>
+                from 2022-11-05 to now
+            </td>
+        </tr>
+    </table>
+    <h2>区块</h2>
+    <h2>列表</h2>
+    <h3>无序列表</h3>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+    <h3>有序列表</h3>
+    <ol start="50">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ol>
+    <h3>自定义列表</h3>
+    <dl>
+        <dt>Coffee</dt>
+            <dd>- black hot drink</dd>
+            <dd>- white hot drink</dd>
+        <dt>Orange</dt>
+        <dd>- A</dd>
+        <dd>- B</dd>
+    </dl>
+    <h3>不同类型的有序列表</h3>
+    <ol>
+        <li>A</li>
+        <li>B</li>
+    </ol>
+    <ol type="A">
+        <li>A</li>
+        <li>B</li>
+    </ol>
+    <ol type="a">
+        <li>A</li>
+        <li>B</li>
+    </ol>
+    <ol type="I">
+        <li>A</li>
+        <li>B</li>
+    </ol>
+    <ol type="i">
+        <li>A</li>
+        <li>B</li>
+    </ol>
+    <h3>不同类型的无须列表</h3>
+    <ul style="list-style-type:disc;">
+        <li>A</li>
+        <li>B</li>
+    </ul>
+    <ul style="list-style-type:circle;">
+        <li>A</li>
+        <li>B</li>
+    </ul>
+    <ul style="list-style-type: square;">
+        <li>A</li>
+        <li>B</li>
+    </ul>
+    <h4>默认的单元格间距</h4>
+    <table border="1">
+        <tr>
+            <td>First</td> <td>A</td>
+        </tr>
+        <tr>
+            <td>A</td> <td>B</td>
+        </tr>
+    </table>
+    <h4>单元格间距=0</h4>
+    <table border="1" cellspacing="0">
+        <tr>
+            <td>First</td> <td>A</td>
+        </tr>
+        <tr>
+            <td>A</td> <td>B</td>
+        </tr>
+    </table>
+    <h4>单元格间距=10</h4>
+    <table border="1" cellspacing="10">
+        <tr>
+            <td>First</td> <td>A</td>
+        </tr>
+        <tr>
+            <td>A</td> <td>B</td>
+        </tr>
+    </table>
+    <h4>具有单元格边框的表格</h4>
+    <table border="1">
+        <caption>没有单元格边框</caption>
+        <tr>
+            <td>first</td>
+            <td>second</td>
+        </tr>
+        <tr>
+            <td>A</td> <td>B</td>
+        </tr>
+    </table>
+    <table border="1" cellpadding="10">
+        <caption>单元格边距</caption>
+        <tr>
+            <td>first</td>
+            <td>second</td>
+        </tr>
+        <tr>
+            <td>A</td> <td>B</td>
+        </tr>
+    </table>
+    <h4>表格内内嵌其他元素</h4>
+    <table border="1">
+        <tr>
+            <td>
+                <p>这是一个小段落</p>
+                <p>这是一个小段落</p>
+            </td>
+            <td>
+                这个单元格包含一个表格
+                <table border="1">
+                    <tr>
+                        <td>A</td> <td>B</td>
+                    </tr>
+                    <tr>
+                        <td>A</td> <td>B</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>这个单元格包含一些列表
+                <ul>
+                    <li>apples</li>
+                    <li>bananas</li>
+                    <li>pineapples</li>
+                </ul>
+            </td>
+
+            <td>Hello，HTML</td>
+        </tr>
+        
+    </table>
+    <h4>跨行或者跨列的表格（合并单元格）</h4>
+    <table border="1">
+        <caption>多列合并</caption>
+        <tr>
+            <th>name</th>
+            <th colspan="2">Telephone</th>
+        </tr>
+        <tr>
+            <td>A</td> <td>B</td> <td>C</td>
+        </tr>
+    </table>
+    <table border="1">
+        <caption>多行合并</caption>
+        <tr>
+            <th>name</th>
+            <th>Telephone</th>
+        </tr>
+        <tr>
+            <td>A</td> <td>B</td>
+        </tr>
+        <tr>
+            <td rowspan="2">a</td> <td>b</td>
+        </tr>
+
+        <tr>
+            <td>b</td>
+        </tr>
+        <tr>
+            <td>C</td><td>b</td>
+        </tr>
+    </table>
+    <h4>带有标题caption的表格</h4>
+    <table border="1">
+        <caption>表格标题</caption>
+        <tr>
+            <th>Month</th>
+            <th>Savings</th>
+        </tr>
+        <tr>
+            <td>January</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>February</td>
+            <td>$200</td>
+        </tr>
+    </table>
+    <h4>垂直表头</h4>
+    <table border="1">
+        <tr>
+            <th>Row1</th>
+            <td>1000</td>
+        </tr>
+        <tr>
+            <th>Row2</th>
+            <td>20000</td>
+        </tr>
+        <tr>
+            <th>Row3</th>
+            <td>30000</td>
+        </tr>
+    </table>
+    <h4>水平表头</h4>
+    <table border="1">
+        <tr>
+            <th>Columns1</th>
+            <th>Columns2</th>
+            <th>Columns3</th>
+        </tr>
+        <tr>
+            <td>100</td> <td>2999</td> <td>39999</td>
+        </tr>
+        <tr>
+            <td>200</td> <td>3999</td> <td>59999</td>
+        </tr>
+    </table>
+    <h4>这个表格没有边框</h4>
+    <table>
+        <tr>
+            <td>100</td> <td>2999</td> <td>39999</td>
+        </tr>
+        <tr>
+            <td>200</td> <td>3999</td> <td>59999</td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <th>Header1</th>
+            <th>Header2</th>
+        </tr>
+        <tr>
+            <td>row1, cell1</td>
+            <td>row1, celll2</td>
+        </tr>
+        <tr>
+            <td>row2, cell1</td>
+            <td>row2, cell2</td>
+        </tr>
+    </table>
     <h4>一列：</h4>
     <table border="1">
         <tr>
