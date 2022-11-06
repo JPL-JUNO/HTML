@@ -6,6 +6,7 @@
     <style>
         body{
             color: #000002;
+            font-size: 100%;
         }
         h1{
             color: #00FF00;
@@ -13,10 +14,13 @@
             text-decoration: overline;
             letter-spacing: 1px;
             text-shadow: 2px 2px #0000FF;
+            font-size: 2.5em;
+            /* 1em=16px */
         }
         h2{
             text-decoration: line-through;
             letter-spacing: -3px;
+            font-size: 30px;
         }
         h3{
             text-decoration: underline;
@@ -26,9 +30,10 @@
             /* 文本中的首行缩进 */
             text-indent: 50px;
             /* 增加单词之间的空白空间 */
-            word-spacing: 30px;
+            /* word-spacing: 30px; */
             /* 在元素内禁用文字环绕(似乎是自动换行的效果)*/
             /* white-space: nowrap; */
+            font-size: 14px;
         }
         p.ex{
             color:rgb(0, 0, 225);
@@ -53,6 +58,8 @@
         }
         p.small{
             line-height: 70%;
+            /* 设置字体的转变 */
+            font-variant: small-caps;
         }
         p.big{
             line-height: 200%;
@@ -66,9 +73,46 @@
         img.bottom{
             vertical-align: text-bottom;
         }
+        p.bold{
+            font-style: bold;
+        }
+        p.italic{
+            font-style: italic;
+        }
+        p.oblique{
+            font-style: oblique;
+        }
+        p.normal{
+            /* 设置字体的加粗 */
+            /* 似乎是颜色的深浅 */
+            font-weight: normal;
+            /* 设置字体的转变 */
+            font-variant: normal;
+        }
+        p.light{
+            font-weight: lighter;
+        }
+        p.thick{
+            font-weight: bold;
+        }
+        p.thicker{
+            /* 似乎用法还不太确定 */
+            font-weight: 600;
+        }
+        p.ex2{
+            /* 在一个声明中设置多个样式 */
+            font: italic bold 12px/30px Georgia, serif;
+        }
     </style>
 </head>
 <body>
+    <p class="ex2">Different type in a statement.</p>
+    <p class="normal">My name is Hege Refsnes.</p>
+    <p class="small">My name is Hege Refsnes.</p>
+    <p class="normal">This is a paragraph.</p>
+    <p class="light">This is a paragraph.</p>
+    <p class="thick">This is a paragraph.</p>
+    <p class="thicker">This is a paragraph.</p>
     <h1>This is header</h1>
     <p>This is paragraphs</p>
     <p class="ex">这是一个类为ex的段落。文本是蓝色的</p>
@@ -111,5 +155,13 @@
     <p>文字底部对齐的图片<img class="bottom" src="img/Lizard.jpg" alt="Lizard" width="270" height="50"></p>
     <h1>Text-shadow 效果</h1>
     <p><b>注意：</b> Internet Explorer 9 以及更早的浏览器不支持 text-shadow 属性。</p>
+    <p class="normal">这是一个段落,正常。</p>
+    <p class="italic">这是一个段落,斜体。</p>
+    <p class="oblique">这是一个段落,斜体。</p>
+    <h1>This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <p>This is a paragraph.</p>
+    <p>允许在 Internet Explorer 9, Firefox, Chrome, Opera, 和 Safari 中通过缩放浏览器调整文本大小。</p>
+    <p><b>注意:</b>这个例子在 IE9之前的版本不工作, prior version 9.</p>
 </body>
 </html>
