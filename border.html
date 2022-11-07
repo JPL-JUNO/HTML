@@ -40,12 +40,27 @@
         p.border1{
             border-style: solid;
             border-width: 5px;
+            border-color: red;
         }
         p.border2{
-            border: solid medium;
+            border: solid medium rgba(0, 255, 0, .5);
         }
         p.border3{
-            border: solid 1px;
+            border: solid 1px #0000FF;
+        }
+        p.diff{
+            border-top: dotted lightcoral;
+            border-bottom: double blue;
+            border-left: dashed green 5px;
+            border-right: groove red;
+            /* border-right-style: groove; */
+            /* border-right-color: red; */
+            /* 上右下左 */
+            /* border-style:dotted solid double dashed; */
+            /* 上、左右、底 */
+            /* border-style:dotted solid double; */
+            /* 上下、左右 */
+            /* border-style:dotted solid; */
         }
     </style>
 </head>
@@ -65,5 +80,7 @@
     <p class="border2">Text</p>
     <p class="border3">Text</p>
     <p><b>注意:</b> "border-width" 属性 如果单独使用则不起作用。要先使用 "border-style" 属性来设置边框。</p>
+    <p><b>注意：</b>border-color单独使用是不起作用的，必须得先使用border-style来设置边框样式。</p>
+    <p class="diff">可以指定各面不同的边框，按照上右下左（顺时针）</p>
 </body>
 </html>
