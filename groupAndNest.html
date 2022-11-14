@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分组与嵌套选择器</title>
+    <style>
+        p{
+            color: blue;
+            text-align: center;
+        }
+        .marked{
+            background-color: red;
+        }
+        .marked p{
+            color: grey;
+        }
+        p.marked{
+            text-decoration: underline;
+        }
+        h3, h4, h5{
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <h2>分组选择器</h1>
+        <p>在样式表中有很多具有相同样式的元素。<br>
+            为了尽量减少代码，你可以使用分组选择器。<br>
+            每个选择器用逗号分隔。</p>
+        <p></p>
+    <h2>嵌套选择器</h2>
+    <ul>
+        <li>p{}:为所有p元素指定一个样式</li>
+        <li>.marked{}:为所有class="marked"的元素指定一个样式</li>
+        <li>.marked p{}:为所有class="marked"中的p元素指定一个样式</li>
+        <li>p.marked{}:为所有class="marked"的p元素指定一个样式</li>
+    </ul>
+    <p>这个段落时蓝色文本，居中对齐</p>
+    <div class="marked">
+        <p>这个是marked中的段落，使用的是grey颜色</p>
+        <p class="marked">这个段落是指定class的段落，具有下划线的</p>
+    </div>
+    <h3>为了减少代码量，我们可以使用分组选择器</h3>
+    <h4>这也是分组选择器的效果</h4>
+</body>
+</html>
