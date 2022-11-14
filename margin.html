@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>外边框</title>
+    <style>
+        p{
+            background-color: yellowgreen;
+        }
+        p.margin{
+            margin-top: 10px;
+            margin-bottom: 100px;
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+        p.simplified{
+            background-color: yellow;
+            margin: 10px 50px;
+        }
+        p.ex1{
+            margin: .2cm;
+        }
+        p.pct{
+            margin-bottom: 1%;
+            margin-top: 2%;
+            margin-left: 2%;
+            margin-right: 2%;;
+        }
+    </style>
+</head>
+<body>
+    <p>这是一个没有外边框的段落。</p>
+    <p class="margin">这里的段落具有一个外边框。</p>
+    <p>外边框是没有背景颜色，是完全透明的</p>
+    <p class="simplified">使用简写的方式设置margin</p>
+    <p>这里就没有任何的设置，注意有左margin的段落有缩进的意思</p>
+    <p class="ex1">当然你也可以修改使用的单位，比如说你不想使用px作为单位而改用cm。这个段落使用的是四周边距为0.2cm的样式</p>
+    <p class="pct">使用百分比也是一种不错的选择</p>
+</body>
+</html>
