@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量与常量</title>
+</head>
+<body>
+    <h2>开发技巧：用变量定义常量</h2>
+    我们一般不会直接使用常量，否则会导致代码冗余、不易维护。如果多个地方要用到同一个常量，那就建议事先定义一个变量，用来保存这个常量；然后在需要的地方去引用这个变量就行了。另外，当我们学习了ES6中的 const 之后，还可以使用自定义常量达到目的。
+    <script type="text/javascript">
+        var name='JS';
+        name = 110;
+        var num1 = 100, num2 = 200;
+        var num3, num4;
+        num3 = num4 = 500;
+        var name = 'A';
+        var name = 'A被覆盖了'
+        console.log(name);
+    </script>
+    <h4>JS 中一共有八种数据类型</h4>
+    <ul>
+        <li>基本数据类型（值类型）：String 字符串、Number 数值、BigInt 大型数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol。</li>
+        <li>引用数据类型（引用类型）：Object 对象。</li>
+    </ul>
+    <script type="text/javascript">
+        function getName(){
+            return '模板字符串中可以调用函数';
+        }
+        console.log(`www.${getName()}.com`);
+    </script>
+    
+</body>
+</html>
