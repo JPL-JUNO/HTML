@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象String：字符串的常见方法</title>
+</head>
+<body>
+    <h2>内置对象简介</h2>
+    <p>
+        JavaScript 中的对象分为3种：自定义对象 、内置对象、 浏览器对象。
+        <br>
+        前面两种对象：是JS的基础内容，属于 ECMAScript； 第三个浏览器对象：属于JS独有，即 JS 内置的API。
+    </p>
+    <p>
+        <b>需要注意的是：字符串的所有方法，都不会改变原字符串（字符串的不可变性），操作完成后会返回一个新的值。</b>
+    </p>
+    <h2>查找字符串</h2>
+    <ul>
+        <li>indexof()/lastindexof()</li>
+        <li>search()</li>
+        <li>includes()</li>
+        <li>startsWith</li>
+        <li>endsWith</li>
+        
+    </ul>
+    <h2>获取指定位置的字符</h2>
+    <ul>
+        <li>charAt(index)</li>
+        <li></li>
+    </ul>
+    <script>
+        var str = 'I love my country!我爱你中国! ';
+        // alert(getZFWlength(str));
+        // alert(str.length);
+
+        function getZFWlength(string){
+            var count = 0;
+            for(var i = 0; i < string.length; i++){
+                if(string.charCodeAt(i) < 128 && string.charCodeAt(i) >= 0){
+                    count++;
+                }
+                else{
+                    count += 2;
+                }
+            }
+            return count;
+        }
+    </script>
+    <h2>字符串截取</h2>
+    <ul>
+        <li>silce()</li>
+        <li>substring</li>
+        <li>substr()</li>
+    </ul>
+    <h2>String.fromCharCode()</h2>
+    <p>
+        String.fromCharCode()：根据字符的 Unicode 编码获取字符。
+    </p>
+    <h2>concat()</h2>
+    <h2>split()：字符串转换为数组 【重要】</h2>
+    <h2>replace()</h2>
+    <h2>repeat()：重复字符串</h2>
+    <h1>内置对象： Date</h1>
+    <h2>内置对象：Date
+
+    </h2>
+    <p>
+        需要注意的是：与 Math 对象不同，Date 对象是一个构造函数 ，需要先实例化后才能使用。
+    </p>
+    <h2>创建Date对象</h2>
+    <h3>写法一：不传递参数时，则获取系统的当前时间对象</h3>
+    <script>
+        var date1 = new Date();
+        console.log(date1);
+        console.log(typeof date1);
+    </script>
+    <h3>写法二：传递参数</h3>
+    <p>
+        传递参数时，表示获取指定时间的时间对象。参数中既可以传递字符串，也可以传递数字，也可以传递时间戳。
+        <br>
+        通过传参的这种写法，我们可以把时间字符串/时间数字/时间戳，按照指定的格式，转换为时间对象。
+    </p>
+    <script>
+        const date11 = new Date('2022/11/15 12:00:00');
+        console.log(date11);
+        const date12 = new Date('2020/04/19'); // 返回的就是四月
+        console.log(date12); // Sun Apr 19 2020 00:00:00 GMT+0800 (中国标准时间)
+
+        const date13 = new Date('2020-05-20');
+        console.log(date13); // Wed May 20 2020 08:00:00 GMT+0800 (中国标准时间)
+
+        const date14 = new Date('Wed Jan 27 2017 12:00:00 GMT+0800 (中国标准时间)');
+        console.log(date14); // Fri Jan 27 2017 12:00:00 GMT+0800 (中国标准时间)
+    </script>
+    <p>参数是多个数字</p>
+    <script>
+        const date21 = new Date(2020, 2, 18); // 注意，第二个参数返回的是三月，不是二月
+        console.log(date21); // Wed Mar 18 2020 00:00:00 GMT+0800 (中国标准时间)
+
+        const date22 = new Date(2020, 3, 18, 22, 59, 58);
+        console.log(date22); // Sat Apr 18 2020 22:59:58 GMT+0800 (中国标准时间)
+
+        const params = [2020, 06, 12, 16, 20, 59];
+        const date23 = new Date(...params);
+        console.log(date23); // Sun Jul 12 2020 16:20:59 GMT+0800 (中国标准时间)
+    </script>
+    <p>参数是时间戳</p>
+    <script>
+        const date31 = new Date(1591950413388);
+        console.log(date31); // Fri Jun 12 2020 16:26:53 GMT+0800 (中国标准时间)
+
+        // 先把时间对象转换成时间戳，然后把时间戳转换成时间对象
+        const timestamp = new Date().getTime();
+        const date32 = new Date(timestamp);
+        console.log(date32); // Fri Jun 12 2020 16:28:21 GMT+0800 (中国标准时间)
+    </script>
+    <h2>日期的格式化</h2>
+    <h2>Moment.js</h2>
+    <p>
+        Moment.js 是一个轻量级的JavaScript时间库，我们可以利用它很方便地进行时间操作，提升开发效率。
+    </p>
+</body>
+</html>
