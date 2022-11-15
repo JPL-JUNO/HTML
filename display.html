@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示与可见性</title>
+    <style>
+        p.hidden{
+            visibility: hidden;
+        }
+        li{
+            display: inline;
+        }
+        span{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Display(显示) 与 Visibility（可见性）</h1>
+    <p>
+        display属性设置一个元素应如何显示，visibility属性指定一个元素应可见还是隐藏。
+    </p>
+    <h2>隐藏元素 - display:none或visibility:hidden</h2>
+    <p>
+        隐藏一个元素可以通过把display属性设置为"none"，或把visibility属性设置为"hidden"。但是请注意，这两种方法会产生不同的结果。
+
+visibility:hidden可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间。也就是说，该元素虽然被隐藏了，但仍然会影响布局。
+    </p>
+    <h3>实例：</h3>
+    <p>
+        这里隐藏了一个段落
+    </p>
+    <p class="hidden">
+        这里隐藏了一个段落
+    </p>
+    <p>
+        <b>注意：</b>被隐藏的段落仍然会占据一定的空间，只是不可见而已
+    </p>
+    <h2>CSS Display-块和内联元素</h2>
+    <p>
+        块元素是一个元素，占用了全部宽度，在前后都是换行符。
+    </p>
+    <h3>实例：</h3>
+    <ul>
+        <li>h1</li>
+        <li>p</li>
+        <li>div</li>
+    </ul>
+    <p>
+        内联元素只需要必要的宽度，不强制换行。
+    </p>
+    <h3>实例：</h3>
+    <ul>
+        <li>span</li>
+        <li>a</li>
+    </ul>
+    <h3>如何改变一个元素显示</h3>
+    <p>可以更改内联元素和块元素，反之亦然，可以使页面看起来是以一种特定的方式组合，并仍然遵循web标准。</p>
+    <ul>
+        <li><a class="line" href="https://www.apple.com/" target="_blank">Apple</a></li>
+        <li><a class="line" href="https://www.apple.com/" target="_blank">Apple</a></li>
+        <li><a class="line" href="https://www.apple.com/" target="_blank">Apple</a></li>
+    </ul>
+    <h2>span使用的实例1</h2>
+    <span>Record: sdff</span>
+    <span>dfghj</span>
+    <h2>span使用的实例2</h2>
+    <span>Record: sdff</span>
+    <span>dfghj</span>
+
+</body>
+</html>
