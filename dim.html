@@ -5,9 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>尺寸(Dimension)</title>
+    <style>
+        img.normal{
+            height: 500px;
+        }
+        img.big{
+            height: 120px;
+        }
+        p.ex{
+            height: 100px;
+            width: 100px;
+        }
+        img.pct{
+            height: 50%;
+            width: 50%;
+        }
+        p.max_height{
+            max-height: 50px;
+            background-color: yellow;
+        }
+        p.max_width_pct{
+            max-width: 30%;
+            background-color: red;
+        }
+        p.min_width_pct{
+            max-width: 100px;
+            min-height: 100px;
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
     <h2>CSS 尺寸 (Dimension) 属性允许你控制元素的高度和宽度。同样，它允许你增加行间距。</h2>
     <h3>实例如下：</h3>
+    <img class="normal" src="img/apple.png" width="500", height="5"><br>
+    好像height在这里指定已经没有用，因为在class中已经指定过了<br>
+    <img class="big" src="img/Lizard.jpg"><br>
+    <img class="pct" src="img/Lizard.jpg"><br>
+    <p>当然你也可以使用百分比来进行指定dim</p>
+    <p class="ex">这个段落的宽和高是100px, 似乎会出现换行的问题，如果大于宽的则自动换行</p><br>
+    <p class="max_height">这里使用的是指定最大高度</p>
+    <p class="max_width_pct">使用百分比来指定最大宽度或者高度。This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text.</p>
+    <p class="min_width_pct">这里使用最大宽度和最小高度来指定框</p>
 </body>
 </html>
