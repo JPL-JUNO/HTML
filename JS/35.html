@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+</head>
+<body>
+    <h1>事件简介</h1>
+    <h2>事件简介</h2>
+    <p>
+        事件：就是文档或浏览器窗口中发生的一些特定的交互瞬间。对于 Web 应用来说，有下面这些代表性的事件：点击某个元素、将鼠标移动至某个元素上方、关闭弹窗等等。JavaScript 是以事件驱动为核心的一门语言。<br>
+        JavaScript 与 HTML 之间的交互是通过事件实现的。
+    </p>
+    <h3>事件三要素</h3>
+    <ul>
+        <li>事件源：引发后续事件的HTML标签</li>
+        <li>事件：JS已经定义好了的</li>
+        <li>事件驱动程序：对样式和HTML的操作，也就是DOM</li>
+    </ul>
+    <p>
+        也就是说，我们可以在时间对应的属性中写一些JS代码，当事件被触发时，这些代码将会执行。
+    </p>
+    <b>代码书写步骤如下：</b>
+    <ul>
+        <li>获取事件源：document.getElementById("box")</li>
+        <li>绑定事件：事件源box，事件onclick = function(){事件驱动程序}</li>
+        <li>书写事件驱动程序：关于DOM的操作</li>
+    </ul>
+    <div id="box1">
+        单击弹出实例
+        <script>
+            var div = document.getElementById('box1');
+            div.onclick = function() {
+                div.style.backgroundColor = 'red';
+                div.style.width = '200px';
+                div.style.height = '200px';
+                // alert('这里为弹出类容');
+            }
+        </script>
+    </div>
+    <h4>常见的时间如下：</h4>
+    <table>
+        <tr>
+            <th>事件名</th> <th>说明</th>
+        </tr>
+        <tr>
+            <td>onclick</td> <td>单击鼠标</td>
+        </tr>
+        <tr>
+            <td>ondblclick</td> <td>双击鼠标</td>
+        </tr>
+        <tr>
+            <td>onkeyup</td> <td>按下并释键盘的一个键时触发</td>
+        </tr>
+        <tr>
+            <td>onchange</td> <td>文本内容或下拉菜单中的选项发生改变</td>
+        </tr>
+        <tr>
+            <td>onfocus</td> <td>获得焦点，表示文本框等获得鼠标光标</td>
+        </tr>
+        <tr>
+            <td>onblur</td> <td>失去焦点，表示文本框等失去鼠标光标</td>
+        </tr>
+        <tr>
+            <td>onmouseover</td> <td>鼠标悬停，即鼠标停留在图片等的上方</td>
+        </tr>
+        <tr>
+            <td>onload</td> <td>网页文档加载事件</td>
+        </tr>
+        <tr>
+            <td>onunload</td> <td>关闭网页时</td>
+        </tr>
+        <tr>
+            <td>onsubmit</td> <td>表单提交事件</td>
+        </tr>
+        <tr>
+            <td>onreset</td> <td>重置表单时</td>
+        </tr>
+    </table>
+    <script>
+        window.onload = function() {
+            console.log('smyhave');
+        }
+    </script>
+    <p>
+        JS的加载是和HTML同步加载的。因此，如果使用元素在定义元素之前，容易报错。这个时候，onload事件就能派上用场了，我们可以把使用元素的代码放在onload里，就能保证这段代码是最后执行。
+        <br>
+        建议是：整个页面上所有元素加载完毕再执行js内容。所以，window.onload可以预防使用标签在定义标签之前。
+    </p>
+</body>
+</html>
