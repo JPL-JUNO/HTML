@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组简介</title>
+</head>
+<body>
+    <h1>数组简介</h1>
+    <h2>数组简介</h2>
+    <p>
+        数组中的元素可以是任意的数据类型，可以是对象，可以是函数，也可以是数组。数组的元素中，如果存放的是数组，我们就称这种数组为二维数组。
+    </p>
+    <h2>创建数组对象</h2>
+    <p>
+        方式一：使用字面量创建数组
+    </p>
+    <script>
+        let arr1 = [];
+        let arr2 = [1, 2, 3];
+        console.log(arr1);
+        console.log(arr2);
+    </script>
+    <p>
+        方式二：使用构造函数创建数组
+    </p>
+    <script>
+        let arr3 = new Array(1, 2, arr1, arr2);
+        let arr4 = new Array(4); //参数为size;
+        console.log(arr3);
+        console.log(arr4);
+        console.log('arr4 = ' + JSON.stringify(arr4));
+        console.log('arr3 = ' + JSON.stringify(arr3));
+    </script>
+    <p>
+        如果读取不存在的索引（比如元素没那么多），系统不会报错，而是返回 undefined。
+    </p>
+    <script>
+        console.log(arr4.length);
+    </script>
+    <p>
+        对于连续的数组，使用 length 可以获取到数组的长度（元素的个数）；对于非连续的数组（即“稀疏数组”，本文稍后会讲），length 的值会大于元素的个数。因此，尽量不要创建非连续的数组。
+    </p>
+    <h2>JS语言中，数组的注意点</h2>
+    <ol>
+        <li>如果访问数组中不存在的索引时，不会报错，会返回undefined。</li>
+
+        <li>当数组的存储空间不够时，数组会自动扩容。其它编程语言中数组的大小是固定的，不会自动扩容。</li>
+
+        <li>数组可以存储不同类型数据，其它编程语言中数组只能存储相同类型数据。</li>
+
+        <li>数组分配的存储空间不一定是连续的。其它语言数组分配的存储空间是连续的。</li>
+    </ol>
+    <h2>数组的解构赋值</h2>
+    <script>
+        let [a, b, c] = [1, 2, [3, 4]];
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        [a, b=3, c=7] = [4, 5, [6, 7]];
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    </script>
+</body>
+</html>
