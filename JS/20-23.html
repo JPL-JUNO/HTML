@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+<body>
+    <h1>函数简介</h1>
+    <h2>函数名、函数体和函数加载问题（重要，请记住）</h2>
+    <h1>递归函数</h1>
+    <h1>立即执行函数</h1>
+    <h2>立即执行函数 IIFE</h2>
+    函数定义完，就立即被调用，这种函数叫做立即执行函数。英文是 IIFE（Immediately-invoked function expression），立即调用函数表达式。
+    <script>
+        (function(a, b){
+            console.log('a = ' + a);
+            console.log('b = ' + b);
+            console.log(a + b);
+            return a + b;
+        })(12, 13);
+    </script>
+    <p>
+        立即执行函数往往只会执行一次。为什么呢？因为没有变量保存它，执行完了之后，就找不到它了。
+    </p>
+    <h1>作用域、变量提升、函数提升</h1>
+    <h1>预编译</h1>
+    <h1>this指向</h1>
+    <h1>闭包</h1>
+    <h2>什么是闭包</h2>
+    <p>
+        闭包：如果外部作用域有权访问另外一个函数内部的局部变量时，那就产生了闭包。这个内部函数称之为闭包函数。注意，这里强调的是访问局部变量。
+    </p>
+</body>
+</html>
