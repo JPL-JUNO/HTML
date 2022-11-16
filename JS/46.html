@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+</head>
+<body>
+    <h1>定时器</h1>
+    <h2>定时器的常见方法</h2>
+    <ul>
+        <li>setInterval()：循环调用。将一段代码，每隔一段时间执行一次。（循环执行）</li>
+        <li>setTimeout()：延时调用。将一段代码，等待一段时间之后再执行。（只执行一次）</li>
+    </ul>
+    <h2>setInterval() 的使用</h2>
+    <b>参数：</b>
+    <ul>
+        <li>参数1：回调函数，该函数会每隔一段时间被调用一次。</li>
+        <li>参数2：每次调用的间隔时间，单位是毫秒。</li>
+    </ul>
+    <h3>清除定时器</h3>
+    <p>
+        定时器的返回值是作为这个定时器的唯一标识，可以用来清除定时器。具体方法是：假设定时器setInterval()的返回值是参数1，那么clearInterval(参数1)就可以清除定时器。
+    </p>
+    <h2>setTimeout()的使用</h2>
+    <p>
+        setTimeout()：延时调用。将一段代码，等待一段时间之后再执行。（只执行一次）
+    </p>
+    <b>参数：</b>
+    <ul>
+        <li>参数1：回调函数，该函数会每隔一段时间被调用一次。</li>
+        <li>参数2：每次调用的间隔时间，单位是毫秒。</li>
+    </ul>
+    <h4>setTimeout() 举例：5秒后关闭网页两侧的广告栏</h4>
+</body>
+</html>
