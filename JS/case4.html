@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>突出显示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            background: #fff;
+        }
+        .wrap{
+            margin: 100px auto 0;
+            width: 660px;
+            height: 420px;
+            padding: 10px 0 0 10px;
+            background: #fff;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+        .wrap li{
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+        .wrap img{
+            display: block;
+            border: 0;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script src="jquery-3.6.1.js"></script>
+    <script>
+        $(window).ready(function(){
+            $('.wrap').find('li').mouseenter(function(){
+                $(this).css('opacity', 1).siblings('li').css('opacity', .5);
+            });
+
+            $('.wrap').mouseleave(function(){
+                $(this).children().children('li').css('opacity', 1);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li><a href="#"><img src="apple.png" alt=""></a></li>
+            <li><a href="#"><img src="apple.png" alt=""></a></li>
+            <li><a href="#"><img src="apple.png" alt=""></a></li>
+            <li><a href="#"><img src="apple.png" alt=""></a></li>
+            <li><a href="#"><img src="apple.png" alt=""></a></li>
+            <li><a href="#"><img src="apple.png" alt=""></a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

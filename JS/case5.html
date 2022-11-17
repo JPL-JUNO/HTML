@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五角星评分</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .comment{
+            font-size: 40px;
+            color: #FF3100;
+        }
+        .comment li{
+            float: left;
+            cursor: pointer;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+    <script src="jquery-3.6.1.js"></script>
+    <script>
+        $(function(){
+            var star_none = '☆';
+            var star_sel = '★';
+
+            $('.comment li').on('mouseenter', function(){
+                $(this).text(star_sel).prevAll('li').text(star_sel).end().nextAll('li').text(star_none);
+            });
+
+            $('.comment li').on('mouseleave', function(){
+                if ($('li.current').length === 0){
+                    $('.comment li').text(star_none);
+                } else{
+                    $('li.current').text(star_sel).prevAll('li').text(star_sel).end().nextAll("li").text(star_none);
+                }
+            });
+
+            $('.comment li').on('click', function(){
+                $(this).attr('class', 'current').siblings().removeAttr('class');
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul> 
+</body>
+</html>
