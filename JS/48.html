@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        } */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .wrap{
+            width: 330px;
+            height: 30px;
+            margin: 100px auto 0;
+            padding-left: 10px;
+            background-color: lightgrey;
+        }
+        .wrap li{
+            background-color: lightblue;
+        }
+        .wrap > ul > li{
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .wrap a{
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #002;
+            line-height: 30px;
+            text-align:center;
+        }
+
+        .wrap li ul{
+            position: absolute;
+            top: 30px;
+            display: none;
+        }
+    </style>
+    <script src="jquery-3.6.1.js"></script>
+    <!-- <script>
+        $(function(){
+            $('button:eq(0)').click(function(){
+                $('div').slideDown(2000);
+            })
+
+            $('button:eq(1)').click(function(){
+                $('div').slideUp(2000);
+            })
+
+            $('button:eq(2)').click(function(){
+                $('div').slideToggle(1000);
+            })
+        });
+    </script> -->
+    <script>
+        $(document).ready(function(){
+            var jqli = $('.wrap>ul>li');
+
+            jqli.mouseenter(function(){
+                $(this).children('ul').stop().slideDown(700);
+            });
+
+            jqli.mouseleave(function(){
+                $(this).children('ul').stop().slideUp(700);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>滑入</button>
+    <button>滑出</button>
+    <button>切换</button>
+    <div></div>
+    <h2>停止动画</h2>
+        <p>
+            $(selector).stop(true, false);
+        
+        <ol>
+            
+            <li>第一个参数
+                <ul>
+                    <li>true：后续动画不执行</li>
+                    <li>false：后续动画会执行</li>
+                </ul>
+            </li>
+            <li>第二个参数
+                <ul>
+                    <li>立即执行完成当前动画</li>
+                    <li>立即停止当前动画</li>
+                </ul>
+            </li>
+        </ol>
+        <b>PS：参数如果都不写，默认两个都是false。实际工作中，直接写stop()用的多。</b>
+    </p>
+
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <h4>stop方法的总结</h4>
+    <p>
+        当调用stop()方法后，队列里面的下一个动画将会立即开始。 但是，如果参数clearQueue被设置为true，那么队列面剩余的动画就被删除了，并且永远也不会执行。
+    <br>
+    如果参数jumpToEnd被设置为true，那么当前动画会停止，但是参与动画的每一个CSS属性将被立即设置为它们的目标值。比如：slideUp()方法，那么元素会立即隐藏掉。如果存在回调函数，那么回调函数也会立即执行。
+    <br>
+    注意：如果元素动画还没有执行完，此时调用stop()方法，那么动画将会停止。并且动画没有执行完成，那么回调函数也不会被执行。
+    </p>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery操作DOM</title>
+    <style>
+        .aaa{
+            border: 1px solid red;
+        }
+    </style>
+    <script src="jquery-3.6.1.js"></script>
+    <script>
+        $(function(){
+            var jqinp = $('input').eq(0);
+            var jqinp2 = $('input:checkbox');
+            var jtbtn = $('button');
+
+            jqinp.click(function(){
+                jqinp.attr('title', 111);
+                console.log(jqinp.attr('title'));
+
+            jqinp.attr('aaa', 111);
+            console.log(jqinp.attr('aaa'));
+
+            jqinp.attr('class', 'aaa');
+            console.log(jqinp.attr('class'));
+
+            jqinp.removeAttr('class');
+            console.log(jqinp.attr('class'));
+
+            jqinp2.prop('checked', true);
+            console.log(jqinp2.attr('checked'));
+            })
+        })
+    </script>
+</head>
+<body>
+    <h2>jQuery设置和获取属性</h2>
+    <p>jQuery 无法直接操作节点的属性和src等，我们需要借助attr()方法。下面介绍。</p>
+    <h3>属性操作</h3>
+    <ul>
+        <li>设置属性<br>
+            <p>$(selector).attr("title", "千古壹号");
+                <br>
+                参数解释：第一个参数表示：要设置的属性名称。第二个参数表示：该属性名称对应的值。
+            </p></li>
+        <li>获取属性<br>
+            <p>$(selector).attr("title");
+                <br>
+                参数为：要获取的属性的名称，返回指定属性对应的值。
+            </p>
+        </li>
+        <li>移除属性<br>
+            <p>$(selector).removeAttr("title");
+            <br>
+            参数为：要移除的属性的名称。
+            </p>
+        </li>
+        <li>form表单中的 prop()方法：<br>
+            
+        </li>
+    </ul>
+    <h3>实例</h3>
+    <button>绑定</button>
+    <input type="text">
+    <input type="checkout">
+    <h3>val()方法和text()方法</h3>
+    <p>
+        $(selector).val();
+        <br>
+        作用：设置或返回 form 表单元素的value值，例如：input、select、textarea 的值。
+        <br>
+        $(selector).text();
+        <br>
+        作用：设置或获取匹配元素的文本内容。不带参数表示，会把所有匹配到的元素内容拼接为一个字符串，不同于其他获取操作。
+    </p>
+</body>
+</html>

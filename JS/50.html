@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery的事件机制和其他知识</title>
+    <script src="jquery-3.6.1.js"></script>
+    <script>
+        $(function(){
+            $(document).on('click', {}, function(event){
+                console.log(event.data);
+                console.log(event.currentTarget);
+                console.log(event.target);
+                console.log(event.pageX);
+                console.log(event.type);
+                console.log(event.which);
+                console.log(event.keyCode);
+            });
+        })
+    </script>
+</head>
+<body>
+    <h2>jQuery设置宽度和高度</h2>
+    <p>
+        $(selector).height();     //不带参数表示获取高度
+	    <br>
+        $(selector).height(200);  //带参数表示设置高度
+    </p>
+    <h2>jQuery的坐标操作</h2>
+    <h3>offset()方法</h3>
+    <p>
+        $(selector).offset();
+        <br>
+	    $(selector).offset({left:100, top: 150});
+        <br>
+        作用：获取或设置元素相对于 document 文档的位置。参数解释：
+        <ul>
+            <li>无参数：表示获取。返回值为：{left:num, top:num}。返回值是相对于document的位置。</li>
+            <li>有参数：表示设置。参数建议使用 number 数值类型。</li>
+        </ul>
+        注意：设置offset后，如果元素没有定位(默认值：static)，则被修改为relative。
+    </p>
+    <h3>position()方法</h3>
+    <p>
+        $(selector).position();
+        <br>
+        作用：获取相对于其最近的带有定位的父元素的位置。返回值为对象：{left:num, top:num}。
+        <br>
+        注意：只能获取，不能设置。
+    </p>
+    <h3>scrollTop()方法</h3>
+    <p>
+        scrollTop();
+        <br>
+    	$(selector).scrollTop(100);
+        <br>
+        作用：获取或者设置元素被卷去的头部的距离。参数解释：
+        <ul>
+            <li>无参数：表示获取。</li>
+            <li>有参数：表示设置。</li>
+        </ul>
+    </p>
+    <h3>scrollLeft()方法</h3>
+    <h2>jQuery的事件机制</h2>
+    <h3>常见的事件绑定</h3>
+    <ul>
+        <li>click(handler) 单击事件。</li>
+        <li>blur(handler) 失去焦点事件。</li>
+        <li>mouseenter(handler) 鼠标进入事件。</li>
+        <li>mouseleave(handler) 鼠标离开事件。</li>
+        <li>dbclick(handler) 双击事件。</li>
+        <li>change(handler) 改变事件，如：文本框值改变，下拉列表值改变等。</li>
+        <li>focus(handler) 获得焦点事件。</li>
+        <li>keydown(handler) 键盘按下事件。</li>
+    </ul>
+    <h3>on方式绑定事件</h3>
+        <p>
+            $(document).on("click mouseenter", ".box", {"name": 111}, function (event) {
+                <br>
+                console.log(event.data);      //event.data获取的就是第三个参数这个json。
+                <br>
+                console.log(event.data.name); //event.data.name获取的是name的值。
+            });
+            <br>
+            参数解释：
+            <ul>
+                <li>第一个参数：events，绑定事件的名称可以是由空格分隔的多个事件（标准事件或者自定义事件）。上方代码绑定的是单击事件和鼠标进入事件。</li>
+                <li>第二个参数：selector, 执行事件的后代元素。</li>
+                <li>第三个参数：data，传递给事件处理函数的数据，事件触发的时候通过event.data来使用（也就是说，可以通过event拿到data）</li>
+                <li>第四个参数：handler，事件处理函数。</li>
+            </ul>
+        </p>
+    <h3>off方式解绑事件</h3>
+    <p>
+        $(selector).off();      // 解绑匹配元素的所有事件
+        <br>
+        $(selector).off("click");   // 解绑匹配元素的所有click事件
+        <br>
+        $(selector).off( "click", "**" );   // 解绑所有代理的click事件，元素本身的事件不会被解绑
+        <br>
+    </p>
+    <h2>jQuery的事件对象</h2>
+    <ul>
+        <li>event.data 传递给事件处理程序的额外数据</li>
+        <li>event.currentTarget 等同于this，当前DOM对象</li>
+        <li>event.pageX 鼠标相对于文档左部边缘的位置</li>
+        <li>event.target 触发事件源，不一定===this</li>
+        <li>event.stopPropagation()； 阻止事件冒泡</li>
+        <li>event.preventDefault(); 阻止默认行为</li>
+        <li>event.type 事件类型：click，dbclick…</li>
+        <li>event.which 鼠标的按键类型：左1 中2 右3</li>
+        <li>event.keyCode 键盘按键代码</li>
+    </ul>
+    <h2>jQuery的两大特点</h2>
+    <ol>
+        <li>链式编程：比如.show()和.html()可以连写成.show().html()。</li>
+        <li>隐式迭代：在方法的内部会为匹配到的所有元素进行循环遍历，执行相应的方法；而不用我们再进行循环，简化我们的操作，方便我们调用。</li>
+    </ol>
+</body>
+</html>
