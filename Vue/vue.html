@@ -31,7 +31,26 @@
             v-bind:class 指令
         </div>
     </div>
+    <div id="eg1">
+        {{5 + 5}}
+        <br>
+        {{ok ? 'Yes': 'No'}}
+        <br>
+        {{msg.split('').reverse().join('')}}
+        <div v-bind:id="'list-' + id">Vue教程</div>
+    </div>
+
     <script>
+        const eg1 = {
+            data(){
+                return{
+                    ok: true,
+                    msg: "Vue3",
+                    id: 1
+                }
+            }
+        }
+        Vue.createApp(eg1).mount('#eg1')
         const content = {
             data(){
                 return {
