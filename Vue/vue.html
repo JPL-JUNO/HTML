@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue测试实例</title>
+    <script src="vue.global.js"></script>
+    <style>
+        .class1 {
+            background: #002;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <div id="renderHtmlApp">
+        <p>
+            使用双大括号的文本插值：{{rawHtml}}
+        </p>
+        <p>
+            使用v-html指令：<span v-html="rawHtml"></span>
+        </p>
+    </div>
+
+    <div id="app">
+        <label for="rl">是否修改颜色</label>
+        <input type="checkbox" v-model="use" id="rl">
+        <br>
+        <div v-bind:class="{'class1': use}">
+            v-bind:class 指令
+        </div>
+    </div>
+    <script>
+        const content = {
+            data(){
+                return {
+                    use: false
+                }
+            }
+        }
+        Vue.createApp(content).mount('#app')
+    </script>
+    <script>
+        const renderHtmlApp = {
+            data(){
+                return {
+                    rawHtml : '<span style="color: red">这里不是变量（存储的是HTML代码）的值而是代码编译的结果<\span>'
+                }
+            }
+        }
+
+        Vue.createApp(renderHtmlApp).mount('#renderHtmlApp')
+    </script>
+</body>
+</html>
