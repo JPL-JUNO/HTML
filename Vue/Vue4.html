@@ -42,14 +42,143 @@
         &lt;my-component-name&gt;&lt/my-component-name;&gt;
     </p>
     <div id="app1">
-        <dComponent></dComponent>
+        <comp></comp>
     </div>
     <script>
         const app1 = Vue.createApp({})
-        app1.component('dComponent',{
-            template: '<h1>自定义组件</h1>'
+        app1.component('comp', {
+            template: '<h5>这个是自定义组件实例!</h5>'
         })
         app1.mount('#app1')
     </script>
+    <h5>实例：点击计数</h5>
+    <div id="countNum">
+        <button-counter></button-counter>
+        <p>
+            你可以对组件进行任意次数的复用
+        </p>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+    <p>
+        <b>注意：</b>template中是`（反引号）而不是'（单引号）。
+    </p>
+    <script>
+        const app2 = Vue.createApp({})
+        app2.component('button-counter',{
+            data: function(){
+                return {
+                    count: 0
+                }
+            },
+            template:
+                `<button @click="count++">
+                    已完成{{count}}次点击
+                </button>`
+        })
+        app2.mount('#countNum')
+    </script>
+    <h3>全局组件</h3>
+    <p>
+        以上的实例中，我们的组件都只是通过component全局注册的。<br>
+        全局注册的组件可以在随后创建的app实例模板中使用，也包括根实例组件树中的所有子组件的模板中。
+    </p>
+    <h3>局部组件</h3>
+    <p>
+        全局注册往往是不够理想的。比如，如果你使用一个像 webpack 这样的构建系统，全局注册所有的组件意味着即便你已经不再使用一个组件了，它仍然会被包含在你最终的构建结果中。这造成了用户下载的 JavaScript 的无谓的增加。
+        <br>
+        在这些情况下，你可以通过一个普通的 JavaScript 对象来定义组件：<br>
+        const ComponentA = {<br>
+            /* ... */ <br>
+        } <br>
+        const ComponentB = {<br>
+            /* ... */ <br>
+        } <br>
+        const ComponentC = {<br>
+            /* ... */ <br>
+        } <br>
+        <br>
+        然后在 components 选项中定义你想要使用的组件：<br>
+        const app = Vue.createApp({ <br>
+            components: { <br>
+              'component-a': ComponentA, <br>
+              'component-b': ComponentB <br>
+            } <br>
+          }) <br>
+    </p>
+    <p>
+        对于 components 对象中的每个属性来说，其属性名就是自定义元素的名字（component-a、component-b），其属性值就是这个组件的选项对象（ComponentA、ComponentB）。
+    </p>
+    <h5>实例：局部组件</h5>
+    <div id="app3">
+        <runoob-a></runoob-a>
+        <runoob-a></runoob-a>
+        <runoob-a></runoob-a>
+        <runoob-a></runoob-a>
+    </div>
+    <script>
+        var runoobA = {
+            template: '<h5>自定义组件</h5>'
+        }
+        const app3 = Vue.createApp({
+            components: {
+                'runoob-a': runoobA
+            }
+        })
+        app3.mount('#app3')
+    </script>
+    <h3>Prop</h3>
+    <p>
+        我们将某段代码封装成一个组件，而这个组件又在另一个组件中引入，而引入该封装的组件的文件叫做父组件，被引入的组件叫做子组件。
+    </p>
+    <p>
+        prop是子组件用来接收父组件传递过来的数据的一个自定义属性<br>
+        父组件的数据需要通过props把数据传给子组件，子组件需要显式地用props选项声明prop：
+    </p>
+    <h5>实例：</h5>
+    <div id="app4">
+        <site-name title="Google"></site-name>
+        <site-name title="Apple"></site-name>
+        <site-name title="Meta"></site-name>
+    </div>
+    <script>
+        const app4 = Vue.createApp({})
+        app4.component('site-name',{
+            props: ['title'],
+            template: `<h4>{{title}}</h4>`
+        })
+        app4.mount('#app4')
+    </script>
+    <h3>动态prop</h3>
+    <p>
+        类似于用v-bind绑定HTML特性到一个表达式，也可以用v-bind动态绑定props的值到父组件的数据中。每当父组件的数据变化时，改变化也会传导给子组件
+    </p>
+    <div id="app5">
+        <site-info
+            v-for="item in items"
+            :id="item.id"
+            :title="item.title">
+        </site-info>
+    </div>
+    <script>
+        const site = {
+            data() {
+                return {
+                    items: [
+                        {id: 1, title: 'Google'},
+                        {id: 2, title: 'Apple'},
+                        {id: 3, title: 'Meta'}
+                    ]
+                }
+            }
+        }
+        const app5 = Vue.createApp(site)
+        app5.component('site-info', {
+            props: ['id', 'title'],
+            template: `<h4>{{id}}-{{title}}</h4>`
+        })
+        app5.mount('#app5')
+    </script>
+    <h3>Prop验证</h3>
 </body>
 </html>
