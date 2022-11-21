@@ -4,9 +4,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>计算属性</title>
+    <title>Vue3计算属性</title>
+    <script src="vue.global.js"></script>
 </head>
 <body>
-    
+    <div>
+        <p>
+            计算属性关键词: <b>computed</b>。
+        </p>
+    </div>
+    <h5>实例：反转字符串</h5>
+    <div id="app1">
+        {{msg.split('').reverse().join('')}}
+    </div>
+    <script>
+        const app1 = {
+            data: function(){
+                return {
+                    msg: 'Google'
+                }
+            }
+        }
+        Vue.createApp(app1).mount('#app1')
+    </script>
+    <p>
+        该实例中模板变得很复杂，也不容易理解（其实我个人感觉挺好看懂的）
+        <br>
+        接下来看看利用计算属性的实例：
+    </p>
+    <h5>实例：</h5>
+    <div id="app2">
+        <p>原始的字符串：{{msg}}</p>
+        <p>反转后字符串：{{reversedMsg}}</p>
+    </div>
+    <script>
+        const app2 = {
+            data: function(){
+                return {
+                    msg: 'Google'
+                }
+            },
+            computed:{
+                reversedMsg: function(){
+                    return this.msg.split('').reverse().join('')
+                }
+            },
+            methods: {
+                reversedMsg2: function(){
+                    return this.msg.split('').reverse().join('')
+                }
+            }
+        }
+        Vue.createApp(app2).mount('#app2')
+    </script>
+    <p>
+        该实例声明了一个计算属性reversedMsg <br>
+        提供的函数将作为属性vm.reversedMsg的getter。<br>
+        vm.reversedMsg依赖于vm.msg，在vm.msg发生改变后，vm.reversedMsg返回的结果也会产生改变
+    </p>
+    <h3>computed vs methods</h3>
+    <div>
+        <p>
+            我们可以使用methods来替代computed，效果上两个都是一样的，但是computed是基于它依赖的缓存，只有相关依赖发生改变时才会重新取值。而使用methods，在重新渲染的时候，函数总会重新调用执行。
+        </p>
+    </div>
+
+    <div>
+        <p>
+            可以说使用computed性能会更好，但是如果你不希望缓存，你可以使用methods属性。
+        </p>
+    </div>
+    <h3>computed setter</h3>
+    <div>
+        <p>
+            computed 属性默认只有 getter ，不过在需要时你也可以提供一个 setter ：
+        </p>
+    </div>
+
+    <div id="app3">
+
+    </div>
+    <script>
+        const app3 = {
+            data: function(){
+                return {
+                    name: 'Google',
+                    url: 'https://www.google.com'
+                }
+            },
+            computed:{
+                site: {
+                    get: function(){
+                        return this.name + ' ' + this.url
+                    },
+                    set: function(newValue){
+                        var names = newValue.split(' ')
+                        this.name = names[0]
+                        this.url = names[names.length - 1] 
+                    }
+                }
+            }
+        }
+        vm = Vue.createApp(app3).mount('#app3')
+        // getter
+        document.write('name: '+ vm.name);
+        document.write('<br>');
+        document.write('url: '+ vm.url);
+        document.write('<br>-------更新数据-------<br>');
+        // setter
+        vm.site = 'Apple https://www.apple.com'
+        document.write('name: '+ vm.name);
+        document.write('<br>');
+        document.write('ulr '+ vm.url);
+    </script>
 </body>
 </html>
