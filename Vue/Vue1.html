@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指令</title>
+    <script src="vue.global.js"></script>
+</head>
+<body>
+    <div id="app1">
+        <p v-if="seen">现在你看到我了</p>
+    </div>
+
+    <p>
+        这里， v-if指令将根据表达式seen的值(true或false)来决定是否插入p元素。
+    </p>
+
+    <script>
+        const app1 = {
+            data() {
+                return {
+                    seen: true
+                }
+            }
+        }
+    Vue.createApp(app1).mount('#app1')
+    </script>
+
+    <p>
+        v-for指令可以绑定数组的数据来渲染一个项目列表：
+    </p>
+    <div id="app2">
+        <ol>
+            <li v-for="site in sites">{{site.text}}</li>
+        </ol>
+    </div>
+    <script>
+        const app2 = {
+            data(){
+                return {
+                    sites: [
+                        {text: 'Python'},
+                        {text: 'R'},
+                        {text: 'Matlab'}
+                    ]
+                }
+            }
+        }
+
+        Vue.createApp(app2).mount('#app2')
+    </script>
+    <h3>参数</h3>
+    <p>
+        参数在指令后以冒号指明。
+    </p>
+    <div id="app3">
+        <p><a v-bind:href="url">菜鸟教程</a></p>
+    </div>
+    <p>
+        <a href="https://blog.csdn.net/qq_36852780/article/details/102766040">v-bind:href之间不能有空格？</a>
+        <br>
+        在这里 href 是参数，告知 v-bind 指令将该元素的 href 属性与表达式 url 的值绑定。
+    </p>
+    <script>
+        const app3 = {
+            data() {
+                return {
+                    url : 'https://www.runoob.com'
+                }
+            }
+        }
+        Vue.createApp(app3).mount('#app3')
+    </script>
+    <h3>修饰符</h3>
+    <p>
+        修饰符是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：
+    </p>
+    <h2>用户输入</h2>
+    <p>
+        在 input 输入框中我们可以使用 v-model 指令来实现双向数据绑定：
+    </p>
+    <h5>实例：同步用户的输入</h5>
+    <div id="app4">
+        <p>
+            {{msg}}
+            <input v-model="msg">
+        </p>
+    </div>
+    <script>
+        const app4 = {
+            data () {
+                return {
+                    msg: 'Vue'
+                }
+            }
+        }
+        Vue.createApp(app4).mount('#app4')
+    </script>
+    <p>
+        v-model指令用来在input、select、textarea、checkbox、radio等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。
+    </p>
+
+    <h5>实例：反转用户输入的字符串</h5>
+    <div id="app5">
+        <p>{{msg}}</p>
+        <button v-on:click="reverseMsg">反转字符串</button>
+    </div>
+    <script>
+        const app5 = {
+            data() {
+                return {
+                    msg: 'Vue'
+                }
+            },
+            methods: {
+                reverseMsg() {
+                this.msg = this.msg.split('').reverse().join('')
+                } 
+            }      
+        }
+        Vue.createApp(app5).mount('#app5')
+    </script>
+    <h2>缩写</h2>
+    <p>
+        Vue.js 为两个最为常用的指令提供了特别的缩写：
+    </p>
+    <h3>v-bind缩写</h3>
+    <p>
+        &lt;!-- 完整语法 --&gt;<br>
+        &lt;a v-bind:href="url"&gt;&lt;/a&gt;<br>
+        &lt;!-- 缩写 --&gt;<br>
+        &lt;a :href="url"&gt;&lt;/a&gt;
+    </p>
+    <h3>v-on缩写</h3>
+    <p>
+        &lt;!-- 完整语法 --&gt;<br>
+        &lt;a v-on:click="doSomething" &gt;&lt;/a&gt;<br>
+        &lt;!-- 缩写 --&gt;<br>
+        &lt;a @click="doSomething"&gt;&lt;/a&gt;
+    </p>
+</body>
+</html>
