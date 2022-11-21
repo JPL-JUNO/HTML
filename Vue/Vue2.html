@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3条件语句</title>
+    <script src="vue.global.js"></script>
+</head>
+<body>
+    <h2>条件判断</h2>
+    <h3>v-if</h3>
+    <p>条件判断使用 v-if 指令，指令的表达式返回 true 时才会显示：</p>
+    <div id="app1">
+        <p v-if="seen">在元素中使用v-if指令(此时设置为插入)</p>
+        <script>
+            const app1 = {
+                data() {
+                    return {
+                        seen: false
+                    }
+                }
+
+            }
+            Vue.createApp(app1).mount('#app1')
+        </script>
+    </div>
+    <p>
+        这里， v-if 指令将根据表达式 seen 的值( true 或 false )来决定是否插入 p 元素。
+        <br>
+        因为 v-if 是一个指令，所以必须将它添加到一个元素上。如果是多个元素，可以包裹在&lt;template&gt;元素上，并在上面使用 v-if。最终的渲染结果将不包含&lt;template&gt;元素。
+    </p>
+    <div id="app2">
+        <template v-if="seen">
+            <h4>template元素</h4>
+            <p>将由一个设置来判断是否插入这里的代码</p>
+            <p>都是由template中的Boolean变量控制的</p>
+        </template>
+    </div>
+    <script>
+        const app2 = {
+            data(){
+                return {
+                    seen: true
+                }
+            }
+        }
+        Vue.createApp(app2).mount('#app2')
+    </script>
+
+    <h3>v-else</h3>
+    <p>可以用 v-else 指令给 v-if 添加一个 "else" 块：</p>
+    <div id="app3">
+        <div v-if="Math.random() > .5">
+            if成立的语句
+        </div>
+        <div v-else>
+            if没有成立的语句
+        </div>
+    </div>
+
+    <script>
+        Vue.createApp(app3).mount('#app3')
+    </script>
+    <h3>v-else-if</h3>
+    <p>
+        v-else-if即v-if的else-if块，可以链式的使用多次：
+    </p>
+    <div id="app4">
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else">
+            啥也不是
+        </div>
+    </div>
+    <script>
+        const app4 = {
+            data(){
+                return {
+                    type: 'D'
+                }
+            }
+        }
+        Vue.createApp(app4).mount('#app4')
+    </script>
+    <h3>v-show</h3>
+    <p>
+        我们也可以使用v-show指令来根据条件展示元素（似乎和v-if有同样的效果）：
+    </p>
+    <div>
+        <b v-show="ok">Show or not</b>
+    </div>
+    <script>
+        const app5 = {
+            data() {
+                return {
+                    ok: true
+                }
+            }
+        }
+        Vue.createApp(app5).mount('#app5')
+    </script>
+</body>
+</html>
