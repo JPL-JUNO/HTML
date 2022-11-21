@@ -136,6 +136,109 @@
         }
         Vue.createApp(app5).mount('#app5')
     </script>
-    <h2></h2>
+    <p>
+        第三个参数可以获取索引
+    </p>
+    <h5>实例：返回对象的属性值、属性名称以及索引</h5>
+    <div id="app6">
+        <ul>
+            <li v-for="(value, key, index) in obj">
+                {{index}}, {{key}}: {{value}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const app6 = {
+            data(){
+                return {
+                    obj:{
+                        name: '菜鸟教程',
+                        url: 'http://www.rynoob.com',
+                        slogan: '学的不仅是计数，更是梦想！'
+                    }
+                }
+            }
+        }
+        Vue.createApp(app6).mount('#app6')
+    </script>
+    <h3>v-for迭代整数</h3>
+    <p>
+        v-for也可以循环整数， 从1开始：
+    </p>
+    <h5>实例：循环整数</h5>
+    <div id="app7">
+        <ul>
+            <li v-for="n in 10">
+                {{n - 1}}, {{n}}, {{n * 5}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.createApp(app7).mount('#app7')
+    </script>
+    <h2>显示过滤/排序后的结果</h2>
+    <p>
+        我们可以对数组的元素进行处理后再显示出来，一般可以通过创建一个计算属性，来返回过滤或排序后的数组。
+    </p>
+    <h5>实例：返回数组中的偶数</h5>
+    <div id="app8">
+        <ul>
+            <li v-for="n in evenNumbers">{{ n }}</li>
+        </ul>
+    </div>
+    <script>
+        const app8  = {
+            data() {
+                return {
+                    numbers: [1, 2, 3, 4, 5]
+                }
+            },
+            computed: {
+                evenNumbers() {
+                    return this.numbers.filter(numbers => numbers % 2 === 0)
+                }
+                
+            }
+        }
+        Vue.createApp(app8).mount('#app8')
+    </script>
+    <h3>v-for/v-if联合使用</h3>
+    <h5>实例：</h5>
+    <div id="app9">
+        <select @change="changeVal($event)" v-model="selOption">
+            <template v-for="(site,index) in sites" :site="site" :index="index" :key="site.id">
+                <option v-if = "index == 1" :value="site.name" selected>
+                    {{site.name}}
+                </option>
+                <option v-else :value="site.name">
+                    {{site.name}}
+                </option>
+            </template>
+        </select>
+        <div>
+            你选中: {{selOption}}
+        </div>
+    </div>
+    <script>
+        const app9 = {
+            data() {
+                return {
+                    selOption: 'Python',
+                    sites: [
+                        {id: 1, name: 'Python'},
+                        {id: 2, name: 'R'},
+                        {id: 3, name: 'Matlab'},
+                    ]
+                }
+            },
+            methods: {
+                changeVal:function(event){
+                    this.selOption = event.target.value;
+                    alert('你选中了'+this.selOption);
+                }
+            }
+        }
+        Vue.createApp(app9).mount('#app9')
+    </script>
 </body>
 </html>
