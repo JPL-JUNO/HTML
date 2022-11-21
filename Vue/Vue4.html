@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3组件</title>
+    <script src="vue.global.js"></script>
+</head>
+<body>
+    <p>
+        组件（Component）是 Vue.js 最强大的功能之一。
+        <br>
+        组件可以扩展 HTML 元素，封装可重用的代码。
+        <br>
+        组件系统让我们可以用独立可复用的小组件来构建大型应用，几乎任意类型的应用的界面都可以抽象为一个组件树：
+    </p>
+    <a href="https://www.runoob.com/vue3/vue3-components.html" title="Vue3组件">
+        <img src="img/components.png" width=100% alt="组件">
+    </a>
+    <br>
+    <p>
+        每个 Vue 应用都是通过用 createApp 函数创建的，传递给 createApp 的选项用于配置根组件。当我们挂载应用时，该组件被用作渲染的起点。
+        <br>
+        一个应用需要被挂载到一个 DOM 元素中。
+        <br>
+        以下实例我们将 Vue 应用挂载到 \&lt;div id="app"&gt;&lt;/div&gt;，应该传入#app：<br>
+        const rootComponent = {/*options*/} <br>
+        const app = Vue.createApp(rootComponent) <br>
+        const vm = app.mount('#app') <br>
+    </p>
+    <p>
+        注册一个全局组件语法格式如下:
+        <br>
+        const app Vue.createApp({...})
+        <br>
+        app.component('my-component-name', {
+            /*...*/
+        })
+        <br>
+        <b>my-component-name</b>为组件名，/*...*/部分为配置选项。注册之后，我们可以使用以下方法来调用组件：<br>
+        &lt;my-component-name&gt;&lt/my-component-name;&gt;
+    </p>
+    <div id="app1">
+        <dComponent></dComponent>
+    </div>
+    <script>
+        const app1 = Vue.createApp({})
+        app1.component('dComponent',{
+            template: '<h1>自定义组件</h1>'
+        })
+        app1.mount('#app1')
+    </script>
+</body>
+</html>
