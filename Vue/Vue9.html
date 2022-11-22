@@ -5,8 +5,142 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue3表单</title>
+    <script src="vue.global.js"></script>
 </head>
 <body>
-    
+    <p>
+        我们可以使用<b>v-model</b>指令在表单input、textarea及select等元素上创建双向数据绑定。
+    </p>
+    <p>
+        v-model会根据控件类型自动选取正确的方法来更新元素。<br>
+        v-model会忽略所有表单元素的value、checked、selected属性的初始值，使用的是data选项中声明初始值。<br>
+        v-model在内部为不同的输出元素使用不同属性并抛出不同的事件：
+        <ul>
+            <li>text和textarea元素使用value属性和input事件</li>
+            <li>checkbox和radio使用checked属性和change事件</li>
+            <li>select将value作为属性并将change作为事件</li>
+        </ul>
+    </p>
+    <h5>实例：</h5>
+    <div id="app1">
+        <p>input元素为：</p>
+        <p><input v-model="msg" placeholder="编辑此处..."></p>
+        <p>input表单消息是： {{msg}}</p>
+
+        <p>textarea元素为：</p>
+        <p><textarea v-model="msg2" placeholder="多行文本输入..."></textarea></p>
+        <p style="white-space: pre;">textarea表单消息是：<br>{{msg2}}</p>
+    </div>
+    <script>
+        const app1 = {
+            data(){
+                return {
+                    msg: '',
+                    msg2: 'Apple\r\nhttps://www.apple.com'
+                }
+            }
+        }
+        Vue.createApp(app1).mount('#app1')
+    </script>
+    <h4>复选框</h4>
+    <p>
+        复选框如果是一个则为逻辑值，如果是多个则绑定到同一个数组。
+    </p>
+    <div id="app2">
+        <p>单个复选框</p>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox"> {{ checked }} </label>
+
+        <p>多个复选框</p>
+        <input type="checkbox" id="Google" value="Google" v-model="checkedboxes">
+        <label for="Google">Google</label>
+        <input type="checkbox" id="Apple" value='Apple' v-model="checkedboxes">
+        <label for="Apple">Apple</label>
+        <input type="checkbox" id="Meta" value="Meta" v-model="checkedboxes">
+        <label for="Meta">Meta</label>
+        <br>
+        <span>选择的值为：{{checkedboxes}}</span>
+    </div>
+    <script>
+        const app2 = {
+            data: function(){
+                return {
+                    checked: false,
+                    checkedboxes: []
+                }
+            }
+        }
+        Vue.createApp(app2).mount('#app2')
+    </script>
+    <h4>单选按钮</h4>
+    <div id="app3">
+        <input type="radio" value="Google" id="Google2" v-model="picked">
+        <!-- for的id重复了，因此加个2区分 -->
+        <label for="Google2">Google</label>
+        <input type="radio" value="Apple" id="Apple2" v-model="picked">
+        <label for="Apple2">Apple</label>
+        <br>
+        <span>
+            选择的值为：{{picked}}
+        </span>
+    </div>
+    <script>
+        const app3 = {
+            data: function(){
+                return {
+                    // 可以设置默认值，这样就会出现默认选项
+                    picked: 'Apple'
+                }
+            }
+        }
+        Vue.createApp(app3).mount('#app3')
+    </script>
+    <h4>select列表</h4>
+    <div id="app4">
+        <select name="company" v-model="selected">
+            <option value="">---请选择一个公司---</option>
+            <option value="https://www.apple.com">Apple</option>
+            <option value="https://www.google.com">Google</option>
+        </select>
+
+        <div id="output">
+            对应的网站是：{{selected}}
+        </div>
+    </div>
+    <script>
+        const app4 = {
+            data: function(){
+                return {
+                    selected: ''
+                }
+            }
+        }
+        Vue.createApp(app4).mount('#app4')
+    </script>
+    <p>
+        输入参数multiple会增加使得显示为数组
+    </p>
+    <h4>使用v-for循环输入选项，不要像上面一样重复多次写，细看</h4>
+    <div id="app5">
+        <select v-model="selected">
+            <option v-for="option in options" :value="option.value">{{option.text}}</option>
+        </select>
+        <br>
+        <span>选择的是：{{selected}}</span>
+    </div>
+    <script>
+        const app5 = {
+            data: function(){
+                return {
+                    selected: 'www.google.com',
+                    options: [
+                        {text: 'Google', value: 'www.google.com'},
+                        {text: 'Apple', value: 'www.apple.com'}
+                    ]
+                }
+            }
+        }
+        Vue.createApp(app5).mount('#app5')
+    </script>
 </body>
 </html>
