@@ -6,11 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>自定义指令</title>
     <script src="vue.global.js"></script>
+    <script src="vue-router.global.js"></script>
+    <link rel="stylesheet" href="Vue10.css">
 </head>
 <body>
     <h2>Vue3自定义指令</h2>
     <p>
         除了默认设置的核心指令（v-model、v-show），Vue也允许注册自定义指令。
+    </p>
+    <h3>简单实例</h3>
+    <p>
+        <b>router-link</b>是一个组件，该组件用于设置一个导航链接，且切换不同的HTML内容
+        <br>
+        <b>to</b>属性为目标地址，即要显示的内容。
+    </p>
+    <div id="app1">
+        <h1>Hello App1</h1>
+        <p>
+            <router-link to="/">Go to Home</router-link>
+            <br>
+            <router-link to="/about">Go to About</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+    <p>
+        请注意，我们没有使用常规的a标签，而是使用一个自定义组件router-link来创建链接。这使得Vue Router可以在不重新加载页面的情况下更改URL，处理URL的生成以及编码。
+    </p>
+    <p>
+        router-view将显示与URL对应的组件，你可以把它放在任何地方，以适应你的布局。
+    </p>
+    <script>
+        // 定义路由组件
+        const Home = {template: '<div>Home</div>'}
+        const About = {template: '<div>About</div>'}
+
+        // 定义一些路由，每个路由器需要映射到一个组件，
+        const routes = [
+            {path: '/', component: Home},
+            {path: '/about', component: About},
+        ]
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes,
+        })
+
+        const app1 = Vue.createApp({}).use(router).mount('#app1')
+    </script>
+    <h4>router-link相关属性</h4>
+    <h5>to</h5>
+    <p>
+        表示目标路由的链接。当被点击后，内部会立刻把to的值传到router.push()，所以这个值可以是一个字符串或者是描述目标位置的对象。
+    </p>
+
+    <h5>replace</h5>
+    <p>
+        设置replace属性的话，当点击时，会调用router.replace()而不是router.push()，导航后不会留下history记录。
+    </p>
+    <h5>append</h5>
+    <p>
+        设置append属性后，则在当前（相对）路径前添加其路径，e.g. 我们从/a导航到一个相对路径/b，如果没有配置append，则路径为/b，如果配置了，则为/a/b。
+    </p>
+    <h5>tag</h5>
+    <p>
+        有时候像哟啊router-link渲染成某种标签，例如li。于是我们使用tag prop类指定何种标签，同样它还是会监听点击，触发导航
+    </p>
+    <h5>active-class</h5>
+    <p>
+        设置连接激活时使用的CSS类名。
+    </p>
+    <h5>实例</h5>
+    <p>
+        <router-link v-bind:to = "{path: '/route1'}" active-class="_active">Router link 1</router-link>
+        <br>
+        <router-link v-bind:to = "{path: '/route2'}" tag="span">Router link 2</router-link>
+    </p>
+    <h5>exact-active-class</h5>
+    <p>
+        配置当连接被精准匹配的时候应该激活的class。
+    </p>
+    <h5>event</h5>
+    <p>
+        声明可以用来触发导航的事件。可以时一个字符串或者是一个包含字符串的数组。
     </p>
 </body>
 </html>
