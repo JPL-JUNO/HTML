@@ -36,5 +36,38 @@
         米：<input type="text" v-model="m" @focus="currentlyActiveField = 'm'">
     </div>
     <p id="info"></p>
+    <script>
+        const app2 = {
+            data () {
+                return {
+                    km: 0,
+                    m: 0
+                }
+            },
+            watch: {
+                km: function(new_val, old_val){
+                    if (this.currentlyActiveField === 'km'){
+                        this.km = new_val;
+                        this.m = new_val * 1000;
+                    }
+                },
+                m: function(new_val, old_val){
+                    if (this.currentlyActiveField === 'm'){
+                        this.km = new_val / 1000;
+                        this.m = new_val;
+                    }
+                }
+            }
+        }
+        vm = Vue.createApp(app2).mount('#app2')
+        vm.$watch('km', function(new_val, old_val){
+            document.getElementById('info').innerHTML = '修改前值为： ' + old_val + '修改后值为： ' + new_val;
+        })
+    </script>
+    <div>
+        <p>应该等我每次输入完才作为前值，这个明显不合理。</p>
+    </div>
+    <h3>异步加载中使用watch</h3>
+    
 </body>
 </html>
