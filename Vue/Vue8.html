@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3事件处理</title>
+    <script src="vue.global.js"></script>
+    <link rel="stylesheet" href="Vue8.css">
+</head>
+<body>
+    <p>
+        我们可以使用v-on指令来监听DOM事件，从而执行Javascript代码。
+        <br>
+        v-on指令可以缩写为@符号。
+    </p>
+    <div id="app1">
+        <button @click="counter += 1" class="btn">点击可以增加1</button>
+        <p>这个按钮被点击了{{counter}}次</p>
+    </div>
+    <script>
+        const app1 = {
+            data () {
+                return {
+                    counter: 0
+                }
+            }
+        }
+        Vue.createApp(app1).mount('#app1')
+    </script>
+    <div>
+        <p>通常情况下，我们需要使用一个方法来调用JS方法</p>
+        <p>v-on可以接受一个定义的方法来调用</p>
+    </div>
+    <h5>实例</h5>
+    <div id="app2">
+        <button @click="greet">点击</button>
+    </div>
+    <script>
+        const app2 = {
+            data (){
+                return {
+                    name: 'Google'
+                }
+            },
+            methods: {
+                greet(event){
+                    alert('Hello ' + this.name + '!')
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        }
+        Vue.createApp(app2).mount('#app2')
+    </script>
+    <p>
+        除了直接绑定到一个方法，也可以用内联JS语句
+    </p>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环语句</title>
+    <script src="vue.global.js"></script>
+</head>
+<body>
+    <h2>Vue.js循环语句</h2>
+    <p>
+        循环使用v-for指令。<br>
+        v-for指令需要以site in sites形式的特殊语法，sites是源数据数组并且site是数组元素迭代的别名。
+        <br>
+        v-for可以绑定数据到数组来渲染一个列表：
+    </p>
+    <h5>实例：</h5>
+    <div id="app1">
+        <ol>
+            <li v-for="site in sites">{{ site.text}}</li>
+        </ol>
+    </div>
+    <script>
+        const app1 = {
+            data(){
+                return{
+                    sites: [
+                        {text: 'Python'},
+                        {text: 'R'},
+                        {text: 'Matlab'}
+                    ]
+                }
+            }
+        }
+        Vue.createApp(app1).mount('#app1')
+    </script>
+    <p>
+        v-for 还支持一个可选的第二个参数，参数值为当前项的索引（索引要写在后面）：
+    </p>
+    <h5>实例：</h5>
+    <div id="app2">
+        <ol>
+            <li v-for="(s, i) in var1">
+                {{i}} - {{ s.text}}
+            </li>
+        </ol>
+    </div>
+    <script>
+        const app2 = {
+            data(){
+                return{
+                    var1: [
+                        {text: 'Python'},
+                        {text: 'R'},
+                        {text: 'Matlab'}
+                    ]
+                }
+            }
+        }
+        Vue.createApp(app2).mount('#app2')
+    </script>
+
+    <p>
+        模板&lt;template&gt;中使用v-for：
+    </p>
+    <h5>实例：</h5>
+    <div id="app3">
+        <ul>
+            <template v-for="lang in languages">
+                <li>{{lang.text}}</li>
+                <li>-------</li>
+            </template>
+        </ul>
+    </div>
+    <script>
+        const app3 = {
+            data(){
+                return{
+                    languages: [
+                        {text: 'Python'},
+                        {text: 'R'},
+                        {text: 'Matlab'}
+                    ]
+                }
+            }
+        }
+        Vue.createApp(app3).mount('#app3')
+    </script>
+    <h3>v-for迭代对象</h3>
+    <p>v-for可以通过一个对象的属性来迭代数据，可以得到属性对应的属性值：</p>
+    <h5>实例：返回对象的属性值</h5>
+    <div id="app4">
+        <ul>
+            <li v-for="attr in obj">
+                {{attr}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const app4 = {
+            data(){
+                return {
+                    obj:{
+                        name: '菜鸟教程',
+                        url: 'http://www.rynoob.com',
+                        slogan: '学的不仅是计数，更是梦想！'
+                    }
+                }
+            }
+        }
+        Vue.createApp(app4).mount('#app4')
+    </script>
+    <p>
+        可以提供第二个参数为键名，这样的话可以返回属性的名称，一个参数时仅仅返回属性值
+    </p>
+    <h5>实例：返回对象的属性值以及属性名称</h5>
+    <div id="app5">
+        <ul>
+            <li v-for="(value, key) in obj">
+                {{key}}: {{value}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const app5 = {
+            data(){
+                return {
+                    obj:{
+                        name: '菜鸟教程',
+                        url: 'http://www.rynoob.com',
+                        slogan: '学的不仅是计数，更是梦想！'
+                    }
+                }
+            }
+        }
+        Vue.createApp(app5).mount('#app5')
+    </script>
+    <p>
+        第三个参数可以获取索引
+    </p>
+    <h5>实例：返回对象的属性值、属性名称以及索引</h5>
+    <div id="app6">
+        <ul>
+            <li v-for="(value, key, index) in obj">
+                {{index}}, {{key}}: {{value}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const app6 = {
+            data(){
+                return {
+                    obj:{
+                        name: '菜鸟教程',
+                        url: 'http://www.rynoob.com',
+                        slogan: '学的不仅是计数，更是梦想！'
+                    }
+                }
+            }
+        }
+        Vue.createApp(app6).mount('#app6')
+    </script>
+    <h3>v-for迭代整数</h3>
+    <p>
+        v-for也可以循环整数， 从1开始：
+    </p>
+    <h5>实例：循环整数</h5>
+    <div id="app7">
+        <ul>
+            <li v-for="n in 10">
+                {{n - 1}}, {{n}}, {{n * 5}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.createApp(app7).mount('#app7')
+    </script>
+    <h2>显示过滤/排序后的结果</h2>
+    <p>
+        我们可以对数组的元素进行处理后再显示出来，一般可以通过创建一个计算属性，来返回过滤或排序后的数组。
+    </p>
+    <h5>实例：返回数组中的偶数</h5>
+    <div id="app8">
+        <ul>
+            <li v-for="n in evenNumbers">{{ n }}</li>
+        </ul>
+    </div>
+    <script>
+        const app8  = {
+            data() {
+                return {
+                    numbers: [1, 2, 3, 4, 5]
+                }
+            },
+            computed: {
+                evenNumbers() {
+                    return this.numbers.filter(numbers => numbers % 2 === 0)
+                }
+                
+            }
+        }
+        Vue.createApp(app8).mount('#app8')
+    </script>
+    <h3>v-for/v-if联合使用</h3>
+    <h5>实例：</h5>
+    <div id="app9">
+        <select @change="changeVal($event)" v-model="selOption">
+            <template v-for="(site,index) in sites" :site="site" :index="index" :key="site.id">
+                <option v-if = "index == 1" :value="site.name" selected>
+                    {{site.name}}
+                </option>
+                <option v-else :value="site.name">
+                    {{site.name}}
+                </option>
+            </template>
+        </select>
+        <div>
+            你选中: {{selOption}}
+        </div>
+    </div>
+    <script>
+        const app9 = {
+            data() {
+                return {
+                    selOption: 'Python',
+                    sites: [
+                        {id: 1, name: 'Python'},
+                        {id: 2, name: 'R'},
+                        {id: 3, name: 'Matlab'},
+                    ]
+                }
+            },
+            methods: {
+                changeVal:function(event){
+                    this.selOption = event.target.value;
+                    alert('你选中了'+this.selOption);
+                }
+            }
+        }
+        Vue.createApp(app9).mount('#app9')
+    </script>
+</body>
+</html>

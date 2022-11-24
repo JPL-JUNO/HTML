@@ -1,0 +1,20 @@
+.active {
+    background: rgb(24, 121, 24);
+}
+
+.static {
+    width: 100px;
+    height: 100px;
+}
+
+.text-danger {
+    background: red;
+}
+
+.classA{
+    color: red;
+}
+.classC{
+    font-weight: 700;
+    font-size: 20px;
+}
