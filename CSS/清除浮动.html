@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清除浮动</title>
+    <style>
+        .box {
+            overflow: hidden;
+            width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgb(74, 22, 196);
+        }
+
+        .damao {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+        .ermao {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(37, 82, 37);
+        }
+
+        .boxes {
+            height: 100px;
+            width: 800px;
+            background-color: black;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="damao"></div>
+        <div class="ermao"></div>
+    </div>
+    <div class="boxes">
+    </div>
+</body>
+
+</html>
