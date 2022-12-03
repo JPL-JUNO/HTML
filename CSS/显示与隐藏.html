@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示与隐藏</title>
+    <style>
+        .a {
+            display: none;
+            height: 200px;
+            width: 200px;
+            background-color: green;
+        }
+
+        .b {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+        }
+
+        .c {
+            visibility: hidden;
+            height: 200px;
+            width: 300px;
+            background-color: pink;
+        }
+
+        .d {
+            /* overflow: visible; */
+            /* overflow: hidden; */
+            /* overflow: scroll; */
+            overflow: auto;
+            height: 200px;
+            width: 200px;
+            border: 3px solid pink;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <div class="b"></div>
+    <div class="d">
+        \subsection{visibility显示隐藏}
+        visibility元素用于指定一个元素应可见还是隐藏，常见参数为visible（元素可见）、hidden（元素隐藏）。
+
+        visibility隐藏元素后，继续占有原来的位置。如果隐藏元素想要继续占有原来的位置，使用\verb|visibility: hidden|，不想继续占有原来的位置，使用\verb|display: none|。
+        \subsection{overflow溢出显示隐藏}
+        overflow属性规定当内容溢出元素框时发生的事情。
+    </div>
+</body>
+
+</html>
